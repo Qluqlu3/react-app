@@ -2,6 +2,7 @@ import { Router, RootRoute, Route, Outlet, NotFoundRoute } from '@tanstack/react
 
 import { NotFound, About } from '../components';
 import { App } from '../App';
+import { Home } from '../components/Home';
 
 const rootRoute = new RootRoute({
   component: () => (
@@ -15,9 +16,7 @@ const rootRoute = new RootRoute({
 const indexRoute = new Route({
   getParentRoute: () => rootRoute,
   path: '/',
-  component: function Index() {
-    return <h2>Home Page</h2>;
-  },
+  component: () => <Home />,
 });
 
 const aboutRoute = new Route({
