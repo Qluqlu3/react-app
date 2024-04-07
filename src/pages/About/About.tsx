@@ -1,11 +1,20 @@
 import { z } from 'zod';
-import { Input } from '../../components/Input';
 import { FormProvider, useForm } from 'react-hook-form';
-import { Button } from '../../components/Button';
+import { zodResolver } from '@hookform/resolvers/zod';
 
-export const About = () => {
-  const methods = useForm();
-  const schema = z.string().min(1, { message: '入力してください' });
+import { Button, Input } from '../../components';
+
+export const About: React.FC = () => {
+  const schema = z.object({ name: z.string().min(1, { message: '入力してください' }) });
+
+  const methods = useForm({
+    resolver: zodResolver(schema),
+  });
+  const {
+    handleSubmit,
+    register,
+    formState: { errors },
+  } = methods;
 
   const onSubmit = (value: unknown) => {
     console.log(value);
@@ -15,9 +24,9 @@ export const About = () => {
     <>
       <h1>Form</h1>
       <FormProvider {...methods}>
-        <form onSubmit={methods.handleSubmit(onSubmit)}>
-          <Input name="name" label="name" {...{ required: '必須', pattern: schema }} />
-          <Button onClick={() => null} label="SUBMIT" />
+        <form onSubmit={handleSubmit(onSubmit)}>
+          <Input name="name" label="name" />
+          <Button label="SUBMIT" />
         </form>
       </FormProvider>
     </>
