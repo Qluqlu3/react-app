@@ -1,11 +1,16 @@
 import { useFormContext } from 'react-hook-form';
+import { z, ZodSchema } from 'zod';
+
+interface ValidationSchema extends Record<string, ZodSchema<any>> {
+  value: ZodSchema<string>;
+}
 
 type Props = {
   name: string;
   label: string;
 };
 
-export const Input = ({ name, label }: Props) => {
+export const Input: React.FC<Props> = ({ name, label, ...rest }: Props) => {
   const {
     register,
     formState: { errors },
@@ -16,8 +21,8 @@ export const Input = ({ name, label }: Props) => {
   return (
     <div>
       <div>{label}</div>
-      <input type="text" {...register(name)} />
-      {/* {errors[name] && <div>{errors.root}</div>} */}
+      <input type="text" {...register(name, rest)} />
+      {errors[name] && <div>{errors[name].message?.toString()}</div>}
     </div>
   );
 };
