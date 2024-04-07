@@ -25,7 +25,7 @@ export const Input: React.FC<Props> = ({ type = 'text', name, label, isRequired 
       <input
         type={type}
         {...register(name)}
-        className="rounded-lg text-xl bg-gray-200 text-black focus:outline-green-600"
+        className="rounded-lg px-2 text-xl bg-gray-200 text-black focus:outline-green-600"
       />
       <div className="text-red-500 py-2 min-h-10">{errors[name] && errors[name].message?.toString()}</div>
     </div>

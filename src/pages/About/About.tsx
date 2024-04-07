@@ -3,12 +3,13 @@ import { z } from 'zod';
 import { FormProvider, useForm } from 'react-hook-form';
 import { zodResolver } from '@hookform/resolvers/zod';
 
-import { Button, Input } from '../../components';
+import { Button, Input, Radio } from '../../components';
 
 export const About: React.FC = () => {
   const schema = z.object({
     name: z.string().min(1, { message: '入力してください' }),
     num: z.string().min(1, { message: '入力してください' }),
+    notification: z.enum(['on', 'off']),
   });
 
   const methods = useForm({
@@ -28,9 +29,17 @@ export const About: React.FC = () => {
       <h1 className="text-5xl">Form</h1>
       <FormProvider {...methods}>
         <form onSubmit={handleSubmit(onSubmit)}>
-          <div className="flex flex-row gap-x-8">
-            <Input name="name" label="name" isRequired />
-            <Input type="number" name="num" label="数値" isRequired />
+          <div className="grid grid-cols-2 gap-x-8">
+            <div className="w-[100%]">
+              <Input name="name" label="name" isRequired />
+            </div>
+            <div className="w-[100%]">
+              <Input type="number" name="num" label="数値" isRequired />
+            </div>
+            <div className="flex w-[100%] gap-x-5">
+              <Radio name="notification" value="on" label="通知オン" />
+              <Radio name="notification" value="off" label="通知オフ" />
+            </div>
           </div>
           <div className="flex justify-end">
             <Button label="SUBMIT" isValid={isValid} />
