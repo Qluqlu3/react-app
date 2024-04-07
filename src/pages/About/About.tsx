@@ -10,11 +10,7 @@ export const About: React.FC = () => {
   const methods = useForm({
     resolver: zodResolver(schema),
   });
-  const {
-    handleSubmit,
-    register,
-    formState: { errors },
-  } = methods;
+  const { handleSubmit } = methods;
 
   const onSubmit = (value: unknown) => {
     console.log(value);
