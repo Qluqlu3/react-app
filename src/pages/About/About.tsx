@@ -1,6 +1,7 @@
 import { z } from 'zod';
-import { Input } from '../Input';
+import { Input } from '../../components/Input';
 import { FormProvider, useForm } from 'react-hook-form';
+import { Button } from '../../components/Button';
 
 export const About = () => {
   const methods = useForm();
@@ -16,7 +17,7 @@ export const About = () => {
       <FormProvider {...methods}>
         <form onSubmit={methods.handleSubmit(onSubmit)}>
           <Input name="name" label="name" {...{ required: '必須', pattern: schema }} />
-          <button type="submit">SUBMIT</button>
+          <Button onClick={() => null} label="SUBMIT" />
         </form>
       </FormProvider>
     </>

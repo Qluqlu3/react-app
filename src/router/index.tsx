@@ -1,8 +1,7 @@
 import { Router, RootRoute, Route, Outlet, NotFoundRoute } from '@tanstack/react-router';
 
-import { NotFound, About } from '../components';
 import { App } from '../App';
-import { Home } from '../components/Home';
+import { About, NotFound, Home } from '../pages';
 
 const rootRoute = new RootRoute({
   component: () => (
