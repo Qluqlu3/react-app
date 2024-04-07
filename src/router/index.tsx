@@ -1,3 +1,4 @@
+import React from 'react';
 import { Router, RootRoute, Route, Outlet, NotFoundRoute } from '@tanstack/react-router';
 
 import { App } from '../App';

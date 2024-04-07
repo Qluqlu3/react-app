@@ -5,9 +5,10 @@ type Props = {
   type?: 'text' | 'number';
   name: string;
   label: string;
+  isRequired?: boolean;
 };
 
-export const Input: React.FC<Props> = ({ type = 'text', name, label }: Props) => {
+export const Input: React.FC<Props> = ({ type = 'text', name, label, isRequired = false }: Props) => {
   const {
     register,
     formState: { errors },
@@ -17,7 +18,10 @@ export const Input: React.FC<Props> = ({ type = 'text', name, label }: Props) =>
 
   return (
     <div>
-      <div className="text-2xl py-2">{label}</div>
+      <div className="text-2xl py-2">
+        {label}
+        {isRequired && <span className="text-red-500 text-2xl">*</span>}
+      </div>
       <input
         type={type}
         {...register(name)}

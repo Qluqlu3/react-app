@@ -6,7 +6,10 @@ import { zodResolver } from '@hookform/resolvers/zod';
 import { Button, Input } from '../../components';
 
 export const About: React.FC = () => {
-  const schema = z.object({ name: z.string().min(1, { message: '入力してください' }) });
+  const schema = z.object({
+    name: z.string().min(1, { message: '入力してください' }),
+    num: z.string().min(1, { message: '入力してください' }),
+  });
 
   const methods = useForm({
     resolver: zodResolver(schema),
@@ -18,14 +21,19 @@ export const About: React.FC = () => {
   };
 
   return (
-    <>
-      <h1>Form</h1>
+    <div>
+      <h1 className="text-5xl">Form</h1>
       <FormProvider {...methods}>
         <form onSubmit={handleSubmit(onSubmit)}>
-          <Input name="name" label="name" />
-          <Button label="SUBMIT" />
+          <div className="flex flex-row gap-x-8">
+            <Input name="name" label="name" isRequired />
+            <Input type="number" name="num" label="数値" isRequired />
+          </div>
+          <div className="flex justify-end">
+            <Button label="SUBMIT" />
+          </div>
         </form>
       </FormProvider>
-    </>
+    </div>
   );
 };
