@@ -14,7 +14,10 @@ export const About: React.FC = () => {
   const methods = useForm({
     resolver: zodResolver(schema),
   });
-  const { handleSubmit } = methods;
+  const {
+    handleSubmit,
+    formState: { isValid },
+  } = methods;
 
   const onSubmit = (value: unknown) => {
     console.log(value);
@@ -30,7 +33,7 @@ export const About: React.FC = () => {
             <Input type="number" name="num" label="数値" isRequired />
           </div>
           <div className="flex justify-end">
-            <Button label="SUBMIT" />
+            <Button label="SUBMIT" isValid={isValid} />
           </div>
         </form>
       </FormProvider>
