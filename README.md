@@ -2,7 +2,7 @@
 
 ## start
 
-``` zsh
+```zsh
 yarn run dev
 ```
 
