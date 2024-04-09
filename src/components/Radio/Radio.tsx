@@ -5,9 +5,10 @@ type Props = {
   name: string;
   value: string;
   label: string;
+  checked?: boolean;
 };
 
-export const Radio: React.FC<Props> = ({ name, value, label }: Props) => {
+export const Radio: React.FC<Props> = ({ name, value, label /* checked = false */ }: Props) => {
   const {
     register,
     formState: { errors },

@@ -5,11 +5,27 @@ import { zodResolver } from '@hookform/resolvers/zod';
 
 import { Button, Input, Radio, Select } from '../../components';
 
+const options = [
+  {
+    id: '11',
+    name: 'Select1',
+  },
+  {
+    id: '22',
+    name: 'Select2',
+  },
+  {
+    id: '33',
+    name: 'Select3',
+  },
+];
+
 export const About: React.FC = () => {
   const schema = z.object({
     name: z.string().min(1, { message: '入力してください' }),
     num: z.string().min(1, { message: '入力してください' }),
     notification: z.enum(['on', 'off']),
+    selectBox: z.string(),
   });
 
   const methods = useForm({
@@ -23,21 +39,6 @@ export const About: React.FC = () => {
   const onSubmit = (value: unknown) => {
     console.log(value);
   };
-
-  const options = [
-    {
-      id: '1',
-      name: 'Select1',
-    },
-    {
-      id: '2',
-      name: 'Select2',
-    },
-    {
-      id: '3',
-      name: 'Select3',
-    },
-  ];
 
   return (
     <div>
@@ -56,7 +57,7 @@ export const About: React.FC = () => {
               <Radio name="notification" value="off" label="通知オフ" />
             </div>
             <div className="flex w-[100%] gap-x-5">
-              <Select label="セレクトボックス" name="select" options={options} />
+              <Select label="セレクトボックス" name="selectBox" options={options} />
             </div>
           </div>
           <div className="flex justify-end">
