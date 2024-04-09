@@ -20,7 +20,7 @@ export const Radio: React.FC<Props> = ({ name, value, label }: Props) => {
         value={value}
         id={value}
         {...register(name)}
-        className="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-800 focus:ring-2 dark:bg-gray-700 dark:border-gray-600"
+        className="w-5 h-5 text-green-600 bg-white border-green-300 dark:ring-offset-green-800 dark:bg-green-700 dark:border-green-600 ring-offset-green-800"
       />
       <label htmlFor={value} className="text-xl">
         {label}

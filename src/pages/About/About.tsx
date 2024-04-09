@@ -3,7 +3,7 @@ import { z } from 'zod';
 import { FormProvider, useForm } from 'react-hook-form';
 import { zodResolver } from '@hookform/resolvers/zod';
 
-import { Button, Input, Radio } from '../../components';
+import { Button, Input, Radio, Select } from '../../components';
 
 export const About: React.FC = () => {
   const schema = z.object({
@@ -24,6 +24,21 @@ export const About: React.FC = () => {
     console.log(value);
   };
 
+  const options = [
+    {
+      id: '1',
+      name: 'Select1',
+    },
+    {
+      id: '2',
+      name: 'Select2',
+    },
+    {
+      id: '3',
+      name: 'Select3',
+    },
+  ];
+
   return (
     <div>
       <h1 className="text-5xl">Form</h1>
@@ -39,6 +54,9 @@ export const About: React.FC = () => {
             <div className="flex w-[100%] gap-x-5">
               <Radio name="notification" value="on" label="通知オン" />
               <Radio name="notification" value="off" label="通知オフ" />
+            </div>
+            <div className="flex w-[100%] gap-x-5">
+              <Select label="セレクトボックス" name="select" options={options} />
             </div>
           </div>
           <div className="flex justify-end">
