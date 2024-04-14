@@ -34,7 +34,7 @@ export const ReactSelect: React.FC<Props> = ({ label, name, options, placeholder
         render={({ field }) => (
           <Select
             isMulti
-            id="multi"
+            id={name}
             options={options}
             value={options.filter((x) => field.value?.includes(x.value))}
             onChange={(newValue) => handleOnChange(newValue, field)}
