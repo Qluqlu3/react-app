@@ -1,8 +1,7 @@
 import React from 'react';
 import { z } from 'zod';
-import { Controller, FormProvider, useForm } from 'react-hook-form';
+import { FormProvider, useForm } from 'react-hook-form';
 import { zodResolver } from '@hookform/resolvers/zod';
-import Select from 'react-select';
 
 import { Button, Input, Radio, Select as SelectBox, ReactSelect } from '../../components';
 
@@ -12,11 +11,6 @@ import { Button, Input, Radio, Select as SelectBox, ReactSelect } from '../../co
 //   notification: 'on' | 'off';
 //   selectBox: string;
 // };
-
-interface OptionType {
-  value: string;
-  label: string;
-}
 
 const optionsVer1 = [
   {
@@ -66,9 +60,6 @@ export const About: React.FC = () => {
   });
   const {
     handleSubmit,
-    watch,
-    setValue,
-    control,
     formState: { isValid },
   } = methods;
 
@@ -76,13 +67,8 @@ export const About: React.FC = () => {
     console.log('SUBMIT', value);
   };
 
-  console.log('isValid', isValid);
-  console.log('watch', watch('multi'));
-
-  // const handleChange = (selectedOptions: OptionsType<OptionType>) => {
-  //   const selectedValues = selectedOptions.map((option) => option.value);
-  //   setValue('fruits', selectedValues);
-  // };
+  // console.log('isValid', isValid);
+  // console.log('watch', watch('multi'));
 
   return (
     <div>
@@ -105,33 +91,13 @@ export const About: React.FC = () => {
             </div>
           </div>
           <div className="my-5">
-            <ReactSelect label={'LABEL'} name="multi" options={optionsVer2} value={''} />
+            <ReactSelect label={'LABEL'} name="multi" options={optionsVer2} />
           </div>
           <div className="flex justify-end">
             <Button label="SUBMIT" isValid={isValid} />
           </div>
         </form>
       </FormProvider>
-      <hr />
-
-      {/* <form onSubmit={handleSubmit(onSubmit)}>
-        <Controller
-          name="name"
-          control={control}
-          render={({ field }) => (
-            <Select
-              id="fruits"
-              options={optionsVer2}
-              isMulti
-              value={optionsVer2.find((x) => x.value === field.value)}
-              onChange={(newValue) => {
-                field.onChange(newValue?.value);
-              }}
-            />
-          )}
-        />
-        <button type="submit">Submit</button>
-      </form> */}
     </div>
   );
 };

@@ -14,8 +14,6 @@ export const Input: React.FC<Props> = ({ type = 'text', name, label, isRequired 
     formState: { errors },
   } = useFormContext();
 
-  console.log(errors);
-
   return (
     <div>
       <div className="text-2xl py-2">
