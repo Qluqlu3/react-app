@@ -1,4 +1,3 @@
-import React from 'react';
 import { Router, RootRoute, Route, Outlet, NotFoundRoute } from '@tanstack/react-router';
 
 import { App } from '../App';
@@ -25,14 +24,14 @@ const aboutRoute = new Route({
   component: () => <About />,
 });
 
-const notFoundRoute = new NotFoundRoute({
-  getParentRoute: () => rootRoute,
-  component: () => <NotFound />,
-});
+// const notFoundRoute = new NotFoundRoute({
+//   getParentRoute: () => rootRoute,
+//   component: () => <NotFound />,
+// });
 
 const routeTree = rootRoute.addChildren([indexRoute, aboutRoute]);
 
-export const router = new Router({ routeTree, notFoundRoute });
+export const router = new Router({ routeTree /** notFoundRoute */ });
 
 declare module '@tanstack/react-router' {
   interface Register {

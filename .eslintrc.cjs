@@ -23,5 +23,6 @@ module.exports = {
         argsIgnorePattern: '^_',
       },
     ],
+    'no-unused-vars': 'warning',
   },
 };

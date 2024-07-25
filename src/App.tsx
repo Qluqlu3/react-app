@@ -1,4 +1,3 @@
-import React from 'react';
 import reactLogo from './assets/react.svg';
 import { Navigation } from './layout/Navigation';
 import viteLogo from '/vite.svg';
