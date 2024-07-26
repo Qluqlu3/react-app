@@ -1,28 +1,28 @@
-import React, { useCallback } from 'react';
-import { Controller, ControllerRenderProps, FieldValues, useFormContext } from 'react-hook-form';
-import Select, { MultiValue } from 'react-select';
+import React, { useCallback } from 'react'
+import { Controller, ControllerRenderProps, FieldValues, useFormContext } from 'react-hook-form'
+import Select, { MultiValue } from 'react-select'
 
 type Option = {
-  label: string;
-  value: string;
-};
+  label: string
+  value: string
+}
 
 type Props = {
-  label: string;
-  name: string;
-  options: Option[];
-  placeholder?: string;
-};
+  label: string
+  name: string
+  options: Option[]
+  placeholder?: string
+}
 
 export const ReactSelect: React.FC<Props> = ({ label, name, options, placeholder }: Props): JSX.Element => {
-  const { control } = useFormContext();
+  const { control } = useFormContext()
 
   const handleOnChange = useCallback(
     (newValue: MultiValue<Option>, field: ControllerRenderProps<FieldValues, string>) => {
-      field.onChange(newValue.map((x) => x.value));
+      field.onChange(newValue.map((x) => x.value))
     },
     [],
-  );
+  )
 
   return (
     <div>
@@ -45,5 +45,5 @@ export const ReactSelect: React.FC<Props> = ({ label, name, options, placeholder
         )}
       />
     </div>
-  );
-};
+  )
+}

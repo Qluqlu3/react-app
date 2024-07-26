@@ -1,9 +1,9 @@
-import reactLogo from './assets/react.svg';
-import { Navigation } from './layout/Navigation';
-import viteLogo from '/vite.svg';
-import { Link } from '@tanstack/react-router';
+import reactLogo from './assets/react.svg'
+import { Navigation } from './layout/Navigation'
+import viteLogo from '/vite.svg'
+import { Link } from '@tanstack/react-router'
 
-const ICON_SIZE = 80;
+const ICON_SIZE = 80
 
 export const App = () => {
   return (
@@ -19,5 +19,5 @@ export const App = () => {
       </div>
       <Navigation />
     </div>
-  );
-};
+  )
+}

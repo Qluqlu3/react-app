@@ -1,11 +1,11 @@
-import React from 'react';
-import { Link } from '@tanstack/react-router';
-import { createBrowserHistory } from '@tanstack/history';
-import clsx from 'clsx';
+import React from 'react'
+import { Link } from '@tanstack/react-router'
+import { createBrowserHistory } from '@tanstack/history'
+import clsx from 'clsx'
 
 export const Navigation = () => {
-  const { location } = createBrowserHistory();
-  const currentPath = location.pathname;
+  const { location } = createBrowserHistory()
+  const currentPath = location.pathname
 
   return (
     <div className="flex flex-row p-2 text-3xl [&>div]:py-2 [&>div]:px-3  [&>div]:text-3xl hover:[&>div]:text-green-200">
@@ -25,5 +25,5 @@ export const Navigation = () => {
         </Link> */}
       </div>
     </div>
-  );
-};
+  )
+}

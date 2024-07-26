@@ -1,7 +1,7 @@
-import { Outlet, createRoute, createRootRoute, createRouter } from '@tanstack/react-router';
+import { Outlet, createRoute, createRootRoute, createRouter } from '@tanstack/react-router'
 
-import { App } from '../App';
-import { About, NotFound, Home } from '../pages';
+import { App } from '../App'
+import { About, NotFound, Home } from '../pages'
 
 const rootRoute = createRootRoute({
   component: () => (
@@ -11,26 +11,26 @@ const rootRoute = createRootRoute({
     </>
   ),
   notFoundComponent: () => <NotFound />,
-});
+})
 
 const indexRoute = createRoute({
   getParentRoute: () => rootRoute,
   path: '/',
   component: () => <Home />,
-});
+})
 
 const aboutRoute = createRoute({
   getParentRoute: () => rootRoute,
   path: '/about',
   component: () => <About />,
-});
+})
 
-const routeTree = rootRoute.addChildren([indexRoute, aboutRoute]);
+const routeTree = rootRoute.addChildren([indexRoute, aboutRoute])
 
-export const router = createRouter({ routeTree });
+export const router = createRouter({ routeTree })
 
 declare module '@tanstack/react-router' {
   interface Register {
-    router: typeof router;
+    router: typeof router
   }
 }

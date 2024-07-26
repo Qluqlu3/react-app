@@ -1,11 +1,11 @@
-import React from 'react';
-import clsx from 'clsx';
+import React from 'react'
+import clsx from 'clsx'
 
 type Props = {
-  label: string;
-  isValid?: boolean;
-  onClick?: () => void;
-};
+  label: string
+  isValid?: boolean
+  onClick?: () => void
+}
 
 export const Button: React.FC<Props> = ({ label, isValid = true, onClick }: Props) => {
   return (
@@ -16,5 +16,5 @@ export const Button: React.FC<Props> = ({ label, isValid = true, onClick }: Prop
     >
       {label}
     </button>
-  );
-};
+  )
+}

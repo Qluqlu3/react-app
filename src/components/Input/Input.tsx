@@ -1,18 +1,18 @@
-import React from 'react';
-import { useFormContext } from 'react-hook-form';
+import React from 'react'
+import { useFormContext } from 'react-hook-form'
 
 type Props = {
-  type?: 'text' | 'number';
-  name: string;
-  label: string;
-  isRequired?: boolean;
-};
+  type?: 'text' | 'number'
+  name: string
+  label: string
+  isRequired?: boolean
+}
 
 export const Input: React.FC<Props> = ({ type = 'text', name, label, isRequired = false }: Props) => {
   const {
     register,
     formState: { errors },
-  } = useFormContext();
+  } = useFormContext()
 
   return (
     <div>
@@ -27,5 +27,5 @@ export const Input: React.FC<Props> = ({ type = 'text', name, label, isRequired 
       />
       <div className="text-red-500 py-2 min-h-10">{errors[name] && errors[name].message?.toString()}</div>
     </div>
-  );
-};
+  )
+}

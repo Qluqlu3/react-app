@@ -1,15 +1,15 @@
-import React from 'react';
-import { useFormContext } from 'react-hook-form';
+import React from 'react'
+import { useFormContext } from 'react-hook-form'
 
 type Props = {
-  label: string;
-  name: string;
-  options: { id: string; name: string }[];
-  placeholder?: string;
-};
+  label: string
+  name: string
+  options: { id: string; name: string }[]
+  placeholder?: string
+}
 
 export const Select: React.FC<Props> = ({ label, name, options }: Props): JSX.Element => {
-  const { register } = useFormContext();
+  const { register } = useFormContext()
   return (
     <div className="w-full">
       <div>{label}</div>
@@ -24,5 +24,5 @@ export const Select: React.FC<Props> = ({ label, name, options }: Props): JSX.El
         ))}
       </select>
     </div>
-  );
-};
+  )
+}

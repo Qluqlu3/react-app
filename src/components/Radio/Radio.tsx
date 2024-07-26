@@ -1,18 +1,18 @@
-import React from 'react';
-import { useFormContext } from 'react-hook-form';
+import React from 'react'
+import { useFormContext } from 'react-hook-form'
 
 type Props = {
-  name: string;
-  value: string;
-  label: string;
-  checked?: boolean;
-};
+  name: string
+  value: string
+  label: string
+  checked?: boolean
+}
 
 export const Radio: React.FC<Props> = ({ name, value, label /* checked = false */ }: Props) => {
   const {
     register,
     formState: { errors },
-  } = useFormContext();
+  } = useFormContext()
 
   return (
     <div className="flex gap-x-1 items-center">
@@ -28,5 +28,5 @@ export const Radio: React.FC<Props> = ({ name, value, label /* checked = false *
       </label>
       <div className="text-red-500 py-2 min-h-10">{errors[name] && errors[name].message?.toString()}</div>
     </div>
-  );
-};
+  )
+}
