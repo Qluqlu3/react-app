@@ -3,7 +3,7 @@ import { z } from 'zod'
 import { FormProvider, useForm } from 'react-hook-form'
 import { zodResolver } from '@hookform/resolvers/zod'
 
-import { Button, Input, Radio, Select as SelectBox, ReactSelect } from '../../components'
+import { Button, Input, Radio, Select as SelectBox, ReactSelect, Textarea } from '../../components'
 
 // type DefaultValue = {
 //   name: string;
@@ -92,6 +92,9 @@ export const About: React.FC = () => {
           </div>
           <div className="my-5">
             <ReactSelect label={'LABEL'} name="multi" options={optionsVer2} />
+          </div>
+          <div>
+            <Textarea />
           </div>
           <div className="flex justify-end">
             <Button label="SUBMIT" isValid={isValid} />
