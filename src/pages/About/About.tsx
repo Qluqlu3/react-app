@@ -1,9 +1,9 @@
-import React from 'react';
-import { z } from 'zod';
-import { FormProvider, useForm } from 'react-hook-form';
-import { zodResolver } from '@hookform/resolvers/zod';
+import React from 'react'
+import { z } from 'zod'
+import { FormProvider, useForm } from 'react-hook-form'
+import { zodResolver } from '@hookform/resolvers/zod'
 
-import { Button, Input, Radio, Select as SelectBox, ReactSelect } from '../../components';
+import { Button, Input, Radio, Select as SelectBox, ReactSelect } from '../../components'
 
 // type DefaultValue = {
 //   name: string;
@@ -25,7 +25,7 @@ const optionsVer1 = [
     id: '33',
     name: 'Select3',
   },
-];
+]
 
 const optionsVer2 = [
   { label: 'A', value: 'A' },
@@ -37,7 +37,7 @@ const optionsVer2 = [
   { label: 'Q', value: 'Q' },
   { label: 'W', value: 'W' },
   { label: 'E', value: 'E' },
-];
+]
 
 export const About: React.FC = () => {
   const schema = z.object({
@@ -46,7 +46,7 @@ export const About: React.FC = () => {
     notification: z.enum(['on', 'off']),
     selectBox: z.string().min(1, { message: '入力してください' }),
     multi: z.array(z.string()).min(1, { message: '入力してください' }),
-  });
+  })
 
   // const defaultValue = {
   //   name: '',
@@ -57,15 +57,15 @@ export const About: React.FC = () => {
 
   const methods = useForm({
     resolver: zodResolver(schema),
-  });
+  })
   const {
     handleSubmit,
     formState: { isValid },
-  } = methods;
+  } = methods
 
   const onSubmit = (value: unknown) => {
-    console.log('SUBMIT', value);
-  };
+    console.log('SUBMIT', value)
+  }
 
   // console.log('isValid', isValid);
   // console.log('watch', watch('multi'));
@@ -99,5 +99,5 @@ export const About: React.FC = () => {
         </form>
       </FormProvider>
     </div>
-  );
-};
+  )
+}

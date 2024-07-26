@@ -20,9 +20,9 @@ export const Navigation = () => {
         </Link>
       </div>
       <div>
-        <Link to="/NotFound" className="text-red-500">
+        {/* <Link to="/NotFound" className="text-red-500">
           NotFound
-        </Link>
+        </Link> */}
       </div>
     </div>
   );
