@@ -13,15 +13,22 @@
   "dependencies": {
     "@hookform/resolvers": "^3.3.4",
     "@tanstack/react-router": "^1.29.2",
+    "@types/react-icons": "^3.0.0",
     "@types/react-select": "^5.0.1",
+    "@types/slate": "^0.47.15",
+    "@types/slate-react": "^0.50.1",
     "clsx": "^2.1.0",
     "eslint-config-prettier": "^9.1.0",
     "eslint-plugin-prettier": "^5.1.3",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
     "react-hook-form": "^7.51.2",
+    "react-icons": "^5.2.1",
     "react-router-dom": "^6.22.3",
     "react-select": "^5.8.0",
+    "slate": "^0.103.0",
+    "slate-history": "^0.100.0",
+    "slate-react": "^0.107.1",
     "zod": "^3.23.8"
   },
   "devDependencies": {
