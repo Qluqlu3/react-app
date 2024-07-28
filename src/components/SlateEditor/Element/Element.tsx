@@ -26,19 +26,19 @@ export const Element: React.FC<RenderElementProps> = ({ attributes, children, el
   switch (element.type) {
     case 'heading-one':
       return (
-        <h1 {...attributes} className="text-7xl">
+        <h1 {...attributes} className="text-6xl font-bold">
           {children}
         </h1>
       )
     case 'heading-two':
       return (
-        <h2 {...attributes} className="text-5xl">
+        <h2 {...attributes} className="text-4xl font-bold">
           {children}
         </h2>
       )
     case 'heading-three':
       return (
-        <h3 {...attributes} className="text-3xl">
+        <h3 {...attributes} className="text-2xl font-bold">
           {children}
         </h3>
       )

@@ -26,8 +26,12 @@ export const SlateEditor: React.FC<Props> = ({}: Props) => {
   const renderElement = useCallback((props: RenderElementProps) => <Element {...props} />, [])
   const renderLeaf = useCallback((props: RenderLeafProps) => <Leaf {...props} />, [])
 
+  const handleOnChange = useCallback((newValue: Descendant[]) => {
+    setValue(newValue)
+  }, [])
+
   return (
-    <Slate editor={editor} initialValue={value} onChange={(newValue) => setValue(newValue)}>
+    <Slate editor={editor} initialValue={value} onChange={handleOnChange}>
       <Toolbar editor={editor} />
       <Editable renderElement={renderElement} renderLeaf={renderLeaf} className="bg-white h-[500px] text-black" />
     </Slate>
