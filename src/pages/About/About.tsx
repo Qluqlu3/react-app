@@ -7,11 +7,12 @@ import { Form, Preview } from '../../components'
 
 export const About: React.FC = () => {
   const schema = z.object({
-    name: z.string().min(1, { message: '入力してください' }),
+    text: z.string().min(1, { message: '入力してください' }),
     num: z.string().min(1, { message: '入力してください' }),
     notification: z.enum(['on', 'off']),
     selectBox: z.string().min(1, { message: '入力してください' }),
     multi: z.array(z.string()).min(1, { message: '入力してください' }),
+    note: z.string().optional(),
   })
 
   const [isPreview, setIsPreview] = useState(false)

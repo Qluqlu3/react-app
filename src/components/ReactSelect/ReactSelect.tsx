@@ -12,9 +12,10 @@ type Props = {
   name: string
   options: Option[]
   placeholder?: string
+  isRequired?: boolean
 }
 
-export const ReactSelect: React.FC<Props> = ({ label, name, options, placeholder }: Props): JSX.Element => {
+export const ReactSelect: React.FC<Props> = ({ label, name, options, placeholder, isRequired }: Props): JSX.Element => {
   const { control } = useFormContext()
 
   const handleOnChange = useCallback(
@@ -26,7 +27,10 @@ export const ReactSelect: React.FC<Props> = ({ label, name, options, placeholder
 
   return (
     <div>
-      <div>{label}</div>
+      <div>
+        {label}
+        {isRequired && <span className="text-red-500 text-2xl">*</span>}
+      </div>
       <Controller
         name={name}
         control={control}
