@@ -7,7 +7,11 @@ import { Textarea } from '../Textarea'
 import { Select } from '../Select'
 import { Button } from '../Button'
 
-export const Form: React.FC = () => {
+interface Props {
+  onClick: () => void
+}
+
+export const Form: React.FC<Props> = ({ onClick }: Props) => {
   const optionsVer1 = [
     {
       id: '11',
@@ -35,14 +39,17 @@ export const Form: React.FC = () => {
     { label: 'E', value: 'E' },
   ]
 
-  const { handleSubmit } = useFormContext()
+  const {
+    handleSubmit,
+    formState: { isValid },
+  } = useFormContext()
 
   const onSubmit = (value: unknown) => {
     console.log('SUBMIT', value)
   }
 
   return (
-    <form onSubmit={handleSubmit(onSubmit)} defaultValue={''}>
+    <form onSubmit={handleSubmit(onSubmit)} defaultValue={''} id="about-form-id">
       <div className="grid grid-cols-2 gap-x-8">
         <div className="w-[100%]">
           <Input name="name" label="name" isRequired />
@@ -65,8 +72,7 @@ export const Form: React.FC = () => {
         <Textarea />
       </div>
       <div className="flex justify-end">
-        {/* <Button label="SUBMIT" isValid={isValid} /> */}
-        <Button label="SUBMIT" />
+        <Button label="Preview" isValid={isValid} onClick={onClick} />
       </div>
     </form>
   )

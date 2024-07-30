@@ -3,11 +3,12 @@ import clsx from 'clsx'
 
 type Props = {
   label: string
+  variant?: 'primary' | 'secondary'
   isValid?: boolean
   onClick?: () => void
 }
 
-export const Button: React.FC<Props> = ({ label, isValid = true, onClick }: Props) => {
+export const Button: React.FC<Props> = ({ label, variant = 'primary', isValid = true, onClick }: Props) => {
   return (
     <button
       onClick={onClick}

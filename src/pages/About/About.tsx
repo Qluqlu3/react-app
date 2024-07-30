@@ -1,43 +1,9 @@
-import React from 'react'
+import React, { useCallback, useState } from 'react'
 import { z } from 'zod'
 import { FormProvider, useForm } from 'react-hook-form'
 import { zodResolver } from '@hookform/resolvers/zod'
 
-import { Button, Input, Radio, Select as SelectBox, ReactSelect, Textarea } from '../../components'
-
-// type DefaultValue = {
-//   name: string;
-//   num: string | number;
-//   notification: 'on' | 'off';
-//   selectBox: string;
-// };
-
-const optionsVer1 = [
-  {
-    id: '11',
-    name: 'Select1',
-  },
-  {
-    id: '22',
-    name: 'Select2',
-  },
-  {
-    id: '33',
-    name: 'Select3',
-  },
-]
-
-const optionsVer2 = [
-  { label: 'A', value: 'A' },
-  { label: 'BBBBBB', value: 'BBBBB' },
-  { label: 'CCC', value: 'CCC' },
-  { label: 'Z', value: 'Z' },
-  { label: 'X', value: 'X' },
-  { label: 'S', value: 'S' },
-  { label: 'Q', value: 'Q' },
-  { label: 'W', value: 'W' },
-  { label: 'E', value: 'E' },
-]
+import { Form, Preview } from '../../components'
 
 export const About: React.FC = () => {
   const schema = z.object({
@@ -48,58 +14,25 @@ export const About: React.FC = () => {
     multi: z.array(z.string()).min(1, { message: '入力してください' }),
   })
 
-  // const defaultValue = {
-  //   name: '',
-  //   num: '',
-  //   notification: 'off',
-  //   selectBox: '',
-  // } satisfies DefaultValue;
+  const [isPreview, setIsPreview] = useState(false)
 
   const methods = useForm({
     resolver: zodResolver(schema),
   })
-  const {
-    handleSubmit,
-    formState: { isValid },
-  } = methods
 
-  const onSubmit = (value: unknown) => {
-    console.log('SUBMIT', value)
-  }
+  const handleOnClickPreview = useCallback(() => {
+    setIsPreview(true)
+  }, [])
 
-  // console.log('isValid', isValid);
-  // console.log('watch', watch('multi'));
+  const handleOnClickBack = useCallback(() => {
+    setIsPreview(false)
+  }, [])
 
   return (
     <div>
       <h1 className="text-5xl">Form</h1>
       <FormProvider {...methods}>
-        <form onSubmit={handleSubmit(onSubmit)} defaultValue={''}>
-          <div className="grid grid-cols-2 gap-x-8">
-            <div className="w-[100%]">
-              <Input name="name" label="name" isRequired />
-            </div>
-            <div className="w-[100%]">
-              <Input type="number" name="num" label="数値" isRequired />
-            </div>
-            <div className="flex w-[100%] gap-x-5">
-              <Radio name="notification" value="on" label="通知オン" />
-              <Radio name="notification" value="off" label="通知オフ" />
-            </div>
-            <div className="flex w-[100%] gap-x-5">
-              <SelectBox label="セレクトボックス" name="selectBox" options={optionsVer1} />
-            </div>
-          </div>
-          <div className="my-5">
-            <ReactSelect label={'LABEL'} name="multi" options={optionsVer2} />
-          </div>
-          <div>
-            <Textarea />
-          </div>
-          <div className="flex justify-end">
-            <Button label="SUBMIT" isValid={isValid} />
-          </div>
-        </form>
+        {isPreview ? <Preview onClickBack={handleOnClickBack} /> : <Form onClick={handleOnClickPreview} />}
       </FormProvider>
     </div>
   )
