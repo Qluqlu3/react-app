@@ -11,14 +11,14 @@ export const Preview: React.FC<Props> = ({ onClickBack }: Props) => {
 
   return (
     <div>
-      <div className="grid grid-cols-2 gap-x-8 w-full">
+      <div className='grid grid-cols-2 gap-x-8 w-full'>
         <div>
-          <div className="text-2xl">Name</div>
-          <div className="w-full text-3xl">{name}</div>
+          <div className='text-2xl'>Name</div>
+          <div className='w-full text-3xl'>{name}</div>
         </div>
         <div></div>
       </div>
-      <div className="flex flex-1 mt-5 justify-end w-full">
+      <div className='flex flex-1 mt-5 justify-end w-full'>
         <Button label={'戻る'} onClick={onClickBack} />
       </div>
     </div>

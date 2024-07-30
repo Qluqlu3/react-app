@@ -13,7 +13,7 @@ export const Navigation = () => {
   } as const
 
   return (
-    <div className="flex flex-row p-2 text-3xl [&>div]:py-2 [&>div]:px-3  [&>div]:text-3xl hover:[&>div]:text-green-200">
+    <div className='flex flex-row p-2 text-3xl [&>div]:py-2 [&>div]:px-3  [&>div]:text-3xl hover:[&>div]:text-green-200'>
       <div>
         <Link to={URL.root} className={clsx(currentPath === URL.root && 'text-green-500')}>
           Home

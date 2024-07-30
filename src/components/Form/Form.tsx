@@ -49,34 +49,34 @@ export const Form: React.FC<Props> = ({ onClick }: Props) => {
   }
 
   return (
-    <form onSubmit={handleSubmit(onSubmit)} defaultValue={''} id="about-form-id">
-      <div className="grid grid-cols-2 gap-x-8">
-        <div className="w-[100%]">
-          <Input name="name" label="テキスト" isRequired />
+    <form onSubmit={handleSubmit(onSubmit)} defaultValue={''} id='about-form-id'>
+      <div className='grid grid-cols-2 gap-x-8'>
+        <div className='w-[100%]'>
+          <Input name='name' label='テキスト' isRequired />
         </div>
-        <div className="w-[100%]">
-          <Input type="number" name="num" label="数値" isRequired />
+        <div className='w-[100%]'>
+          <Input type='number' name='num' label='数値' isRequired />
         </div>
-        <div className="flex w-[100%] gap-x-5">
+        <div className='flex w-[100%] gap-x-5'>
           <div>
-            通知<span className="text-red-500 text-2xl">*</span>
+            通知<span className='text-red-500 text-2xl'>*</span>
           </div>
-          <Radio name="notification" value="on" label="通知オン" />
-          <Radio name="notification" value="off" label="通知オフ" />
+          <Radio name='notification' value='on' label='通知オン' />
+          <Radio name='notification' value='off' label='通知オフ' />
         </div>
-        <div className="flex w-[100%] gap-x-5">
-          <Select label="セレクトボックス" name="selectBox" options={optionsVer1} />
+        <div className='flex w-[100%] gap-x-5'>
+          <Select label='セレクトボックス' name='selectBox' options={optionsVer1} />
         </div>
       </div>
-      <div className="my-5">
-        <ReactSelect label="タグ選択" name="multi" options={optionsVer2} />
+      <div className='my-5'>
+        <ReactSelect label='タグ選択' name='multi' options={optionsVer2} />
       </div>
       <div>
         <div>テキストエリア</div>
         <Textarea />
       </div>
-      <div className="flex justify-end">
-        <Button label="Preview" isValid={isValid} onClick={onClick} />
+      <div className='flex justify-end'>
+        <Button label='Preview' isValid={isValid} onClick={onClick} />
       </div>
     </form>
   )

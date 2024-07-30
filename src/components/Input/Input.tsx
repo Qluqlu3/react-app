@@ -16,16 +16,16 @@ export const Input: React.FC<Props> = ({ type = 'text', name, label, isRequired 
 
   return (
     <div>
-      <div className="text-2xl py-2">
+      <div className='text-2xl py-2'>
         {label}
-        {isRequired && <span className="text-red-500 text-2xl">*</span>}
+        {isRequired && <span className='text-red-500 text-2xl'>*</span>}
       </div>
       <input
         type={type}
         {...register(name)}
-        className="rounded-lg px-2 text-xl bg-gray-200 text-black focus:outline-green-600"
+        className='rounded-lg px-2 text-xl bg-gray-200 text-black focus:outline-green-600'
       />
-      <div className="text-red-500 py-2 min-h-10">{errors[name] && errors[name].message?.toString()}</div>
+      <div className='text-red-500 py-2 min-h-10'>{errors[name] && errors[name].message?.toString()}</div>
     </div>
   )
 }
