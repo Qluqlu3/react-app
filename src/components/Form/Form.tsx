@@ -51,20 +51,22 @@ export const Form: React.FC<Props> = ({ onClick }: Props) => {
   return (
     <form onSubmit={handleSubmit(onSubmit)} defaultValue={''} id='about-form-id'>
       <div className='grid grid-cols-2 gap-x-8'>
-        <div className='w-[100%]'>
-          <Input name='name' label='テキスト' isRequired />
+        <div className='w-full'>
+          <Input name='text' label='テキスト' isRequired />
         </div>
-        <div className='w-[100%]'>
+        <div className='w-full'>
           <Input type='number' name='num' label='数値' isRequired />
         </div>
-        <div className='flex w-[100%] gap-x-5'>
+        <div className='flex w-full gap-x-5 flex-col'>
           <div>
             通知<span className='text-red-500 text-2xl'>*</span>
           </div>
-          <Radio name='notification' value='on' label='通知オン' />
-          <Radio name='notification' value='off' label='通知オフ' />
+          <div className='flex gap-x-5'>
+            <Radio name='notification' value='on' label='通知オン' />
+            <Radio name='notification' value='off' label='通知オフ' />
+          </div>
         </div>
-        <div className='flex w-[100%] gap-x-5'>
+        <div className='flex w-full gap-x-5'>
           <Select label='セレクトボックス' name='selectBox' options={optionsVer1} />
         </div>
       </div>
@@ -72,10 +74,9 @@ export const Form: React.FC<Props> = ({ onClick }: Props) => {
         <ReactSelect label='タグ選択' name='multi' options={optionsVer2} />
       </div>
       <div>
-        <div>テキストエリア</div>
-        <Textarea />
+        <Textarea label='テキストエリア' name='note' />
       </div>
-      <div className='flex justify-end'>
+      <div className='flex justify-end mt-3'>
         <Button label='Preview' isValid={isValid} onClick={onClick} />
       </div>
     </form>

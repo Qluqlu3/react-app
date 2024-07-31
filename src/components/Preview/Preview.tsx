@@ -1,5 +1,6 @@
 import { useFormContext } from 'react-hook-form'
 import { Button } from '../Button'
+import { Tag } from '../Tag'
 
 interface Props {
   onClickBack: () => void
@@ -7,14 +8,42 @@ interface Props {
 
 export const Preview: React.FC<Props> = ({ onClickBack }: Props) => {
   const { getValues } = useFormContext()
-  const name = getValues('name')
+  const text: string = getValues('text')
+  const num: number = getValues('num')
+  const notification: string = getValues('notification')
+  // const note = getValues('note')
+  const multi: string[] = getValues('multi')
+
+  // console.log(multi)
 
   return (
-    <div>
-      <div className='grid grid-cols-2 gap-x-8 w-full'>
+    <div className='w-full mt-3'>
+      <div className='grid grid-cols-2 gap-8 w-full'>
         <div>
-          <div className='text-2xl'>Name</div>
-          <div className='w-full text-3xl'>{name}</div>
+          <div className='text-xl'>テキスト</div>
+          <div className='w-full text-3xl p-2'>{text}</div>
+        </div>
+        <div>
+          <div className='text-xl'>数値</div>
+          <div className='w-full text-3xl p-2'>{num}</div>
+        </div>
+        <div>
+          <div className='text-xl'>通知</div>
+          <div className='w-full text-xl p-2'>{notification}</div>
+        </div>
+        <div>
+          <div className='text-xl'>multi</div>
+          <div className='w-full text-3xl'>
+            <div className='flex flex-wrap gap-3 p-2'>
+              {multi.map((value) => (
+                <Tag label={value} />
+              ))}
+            </div>
+          </div>
+        </div>
+        <div>
+          {/* <div className='text-2xl'>数値</div>
+          <div className='w-full text-3xl'>{num}</div> */}
         </div>
         <div></div>
       </div>

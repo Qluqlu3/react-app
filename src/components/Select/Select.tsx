@@ -6,9 +6,10 @@ type Props = {
   name: string
   options: { id: string; name: string }[]
   placeholder?: string
+  isRequired?: boolean
 }
 
-export const Select: React.FC<Props> = ({ label, name, options }: Props): JSX.Element => {
+export const Select: React.FC<Props> = ({ label, name, options, isRequired = false }: Props): JSX.Element => {
   const { register } = useFormContext()
   return (
     <div className='w-full'>
@@ -18,7 +19,7 @@ export const Select: React.FC<Props> = ({ label, name, options }: Props): JSX.El
           選択してください
         </option>
         {options.map((option) => (
-          <option key={option.id} value={option.id} className='bg-green-200 text-xl'>
+          <option key={option.id} value={option.id}>
             {option.name}
           </option>
         ))}

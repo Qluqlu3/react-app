@@ -1,6 +1,7 @@
+import { clsx } from 'clsx'
 import React, { useCallback } from 'react'
 import { Controller, ControllerRenderProps, FieldValues, useFormContext } from 'react-hook-form'
-import Select, { MultiValue } from 'react-select'
+import Select, { MultiValue, StylesConfig } from 'react-select'
 
 type Option = {
   label: string
@@ -17,6 +18,19 @@ type Props = {
 
 export const ReactSelect: React.FC<Props> = ({ label, name, options, placeholder, isRequired }: Props): JSX.Element => {
   const { control } = useFormContext()
+
+  const customStyles: StylesConfig<Option, true> = {
+    multiValue: (provided) => ({
+      ...provided,
+      backgroundColor: '#86efac',
+    }),
+    option: (provided) => ({
+      ...provided,
+      ':hover': {
+        backgroundColor: '#dcfce7',
+      },
+    }),
+  }
 
   const handleOnChange = useCallback(
     (newValue: MultiValue<Option>, field: ControllerRenderProps<FieldValues, string>) => {
@@ -37,6 +51,7 @@ export const ReactSelect: React.FC<Props> = ({ label, name, options, placeholder
         rules={{ required: true }}
         render={({ field }) => (
           <Select
+            {...field}
             isMulti
             id={name}
             options={options}
@@ -45,6 +60,7 @@ export const ReactSelect: React.FC<Props> = ({ label, name, options, placeholder
             closeMenuOnSelect={false}
             placeholder={placeholder}
             className='text-black'
+            styles={customStyles}
           />
         )}
       />
