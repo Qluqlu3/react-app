@@ -57,9 +57,9 @@ export const Form: React.FC<Props> = ({ onClick }: Props) => {
         <div className='w-full'>
           <Input type='number' name='num' label='数値' isRequired />
         </div>
-        <div className='flex w-full gap-x-5 flex-col'>
+        <div className='flex w-full flex-col gap-x-5'>
           <div>
-            通知<span className='text-red-500 text-2xl'>*</span>
+            通知<span className='text-2xl text-red-500'>*</span>
           </div>
           <div className='flex gap-x-5'>
             <Radio name='notification' value='on' label='通知オン' />
@@ -76,8 +76,8 @@ export const Form: React.FC<Props> = ({ onClick }: Props) => {
       <div>
         <Textarea label='テキストエリア' name='note' />
       </div>
-      <div className='flex justify-end mt-3'>
-        <Button label='Preview' isValid={isValid} onClick={onClick} />
+      <div className='mt-3 flex justify-end'>
+        <Button label='Preview' isDisabled={!isValid} onClick={onClick} />
       </div>
     </form>
   )

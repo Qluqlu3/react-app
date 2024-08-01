@@ -23,5 +23,6 @@ module.exports = {
         argsIgnorePattern: '^_',
       },
     ],
+    'tailwindcss/classnames-order': 'warn',
   },
 }

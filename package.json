@@ -8,7 +8,9 @@
     "build": "tsc && vite build",
     "lint": "eslint . --ext ts,tsx --report-unused-disable-directives --max-warnings 0",
     "preview": "vite preview",
-    "format": "prettier --write \"**/*.{js,jsx,ts,tsx,json,html,css,scss,md}\""
+    "format": "prettier --write \"**/*.{js,jsx,ts,tsx,json,html,css,scss,md}\"",
+    "lint:css": "stylelint '**/*.{tsx}'",
+    "lint:css:fix": "stylelint '**/*.{tsx}' --fix"
   },
   "dependencies": {
     "@hookform/resolvers": "^3.3.4",
@@ -32,6 +34,7 @@
     "zod": "^3.23.8"
   },
   "devDependencies": {
+    "@stylelint/postcss-css-in-js": "^0.38.0",
     "@types/react": "^18.2.66",
     "@types/react-dom": "^18.2.22",
     "@typescript-eslint/eslint-plugin": "^7.17.0",
@@ -42,10 +45,15 @@
     "eslint-plugin-react": "^7.35.0",
     "eslint-plugin-react-hooks": "^4.6.2",
     "eslint-plugin-react-refresh": "^0.4.6",
-    "postcss": "^8.4.38",
+    "postcss": "^8.4.40",
     "prettier": "^3.2.5",
     "prettier-plugin-tailwind": "^2.2.12",
     "prettier-plugin-tailwindcss": "^0.5.13",
+    "stylelint": "^16.8.1",
+    "stylelint-config-recommended": "^14.0.1",
+    "stylelint-config-standard": "^36.0.1",
+    "stylelint-config-tailwindcss": "^0.0.7",
+    "stylelint-order": "^6.0.4",
     "tailwindcss": "^3.4.3",
     "typescript": "^5.2.2",
     "vite": "^5.2.0"

@@ -5,5 +5,5 @@ interface Props {
 }
 
 export const Tag: React.FC<Props> = ({ label }: Props) => {
-  return <div className='py-2 px-4 bg-orange-500 text-2xl rounded-xl'>{label}</div>
+  return <div className='rounded-xl bg-orange-500 px-4 py-2 text-2xl'>{label}</div>
 }

@@ -15,18 +15,18 @@ export const Radio: React.FC<Props> = ({ name, value, label /* checked = false *
   } = useFormContext()
 
   return (
-    <div className='flex gap-x-1 items-center'>
+    <div className='flex items-center gap-x-1'>
       <input
         type='radio'
         value={value}
         id={value}
         {...register(name)}
-        className='w-5 h-5 text-green-600 bg-white border-green-300 dark:ring-offset-green-800 dark:bg-green-700 dark:border-green-600 ring-offset-green-800'
+        className='h-5 w-5 border-green-300 bg-white text-green-600 ring-offset-green-800 dark:border-green-600 dark:bg-green-700 dark:ring-offset-green-800'
       />
       <label htmlFor={value} className='text-xl'>
         {label}
       </label>
-      <div className='text-red-500 py-2 min-h-10'>{errors[name] && errors[name].message?.toString()}</div>
+      <div className='min-h-10 py-2 text-red-500'>{errors[name] && errors[name].message?.toString()}</div>
     </div>
   )
 }

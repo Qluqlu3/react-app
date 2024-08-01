@@ -8,14 +8,14 @@ const ICON_SIZE = 80
 export const App = () => {
   return (
     <div>
-      <div className='flex w-full justify-center items-center m-1'>
+      <div className='m-1 flex w-full items-center justify-center'>
         <Link href='https://vitejs.dev' target='_blank'>
           <img src={viteLogo} width={ICON_SIZE} alt='Vite logo' />
         </Link>
         <Link href='https://react.dev' target='_blank'>
           <img src={reactLogo} width={ICON_SIZE} alt='React logo' />
         </Link>
-        <h1 className='text-7xl mx-2'>Vite + React</h1>
+        <h1 className='mx-2 text-7xl'>Vite + React</h1>
       </div>
       <Navigation />
     </div>

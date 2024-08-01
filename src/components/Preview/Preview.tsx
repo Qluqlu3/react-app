@@ -17,19 +17,19 @@ export const Preview: React.FC<Props> = ({ onClickBack }: Props) => {
   // console.log(multi)
 
   return (
-    <div className='w-full mt-3'>
-      <div className='grid grid-cols-2 gap-8 w-full'>
+    <div className='mt-3 w-full'>
+      <div className='grid w-full grid-cols-2 gap-8'>
         <div>
           <div className='text-xl'>テキスト</div>
-          <div className='w-full text-3xl p-2'>{text}</div>
+          <div className='w-full p-2 text-3xl'>{text}</div>
         </div>
         <div>
           <div className='text-xl'>数値</div>
-          <div className='w-full text-3xl p-2'>{num}</div>
+          <div className='w-full p-2 text-3xl'>{num}</div>
         </div>
         <div>
           <div className='text-xl'>通知</div>
-          <div className='w-full text-xl p-2'>{notification}</div>
+          <div className='w-full p-2 text-xl'>{notification}</div>
         </div>
         <div>
           <div className='text-xl'>multi</div>
@@ -47,8 +47,8 @@ export const Preview: React.FC<Props> = ({ onClickBack }: Props) => {
         </div>
         <div></div>
       </div>
-      <div className='flex flex-1 mt-5 justify-end w-full'>
-        <Button label={'戻る'} onClick={onClickBack} />
+      <div className='mt-5 flex w-full flex-1 justify-end'>
+        <Button label='戻る' variant='secondary' onClick={onClickBack} />
       </div>
     </div>
   )

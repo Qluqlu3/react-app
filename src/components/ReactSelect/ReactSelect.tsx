@@ -43,7 +43,7 @@ export const ReactSelect: React.FC<Props> = ({ label, name, options, placeholder
     <div>
       <div>
         {label}
-        {isRequired && <span className='text-red-500 text-2xl'>*</span>}
+        {isRequired && <span className='text-2xl text-red-500'>*</span>}
       </div>
       <Controller
         name={name}
