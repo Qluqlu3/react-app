@@ -31,7 +31,7 @@ export const About: React.FC = () => {
 
   return (
     <div>
-      <h1 className='border-b border-blue-200 text-5xl'>Form</h1>
+      <h1 className='mb-3 border-b-2 border-green-700 text-6xl'>Form</h1>
       <FormProvider {...methods}>
         {isPreview ? <Preview onClickBack={handleOnClickBack} /> : <Form onClick={handleOnClickPreview} />}
       </FormProvider>

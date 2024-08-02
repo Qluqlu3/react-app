@@ -14,11 +14,11 @@ export const Textarea: React.FC<Props> = ({ label, name, isRequired = false }: P
   } = useFormContext()
   return (
     <div>
-      <div className='py-2 text-2xl'>
+      <div className='py-2 text-xl'>
         {label}
         {isRequired && <span className='text-2xl text-red-500'>*</span>}
       </div>
-      <textarea {...register(name)} rows={10} className='w-full text-xl text-white' placeholder='textarea...' />
+      <textarea {...register(name)} rows={10} className='w-full p-3 text-2xl text-white' placeholder='textarea...' />
     </div>
   )
 }

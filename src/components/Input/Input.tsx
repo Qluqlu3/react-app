@@ -16,14 +16,14 @@ export const Input: React.FC<Props> = ({ type = 'text', name, label, isRequired 
 
   return (
     <div>
-      <div className='py-2 text-2xl'>
+      <div className='py-2 text-xl'>
         {label}
         {isRequired && <span className='text-2xl text-red-500'>*</span>}
       </div>
       <input
         type={type}
         {...register(name)}
-        className='rounded-lg bg-gray-200 px-2 text-xl text-black focus:outline-green-600'
+        className='rounded-lg bg-gray-200 px-2 text-2xl text-black focus:outline-green-600'
       />
       <div className='min-h-10 py-2 text-red-500'>{errors[name] && errors[name].message?.toString()}</div>
     </div>

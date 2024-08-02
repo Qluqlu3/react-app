@@ -12,31 +12,27 @@ interface Props {
 }
 
 export const Form: React.FC<Props> = ({ onClick }: Props) => {
-  const optionsVer1 = [
-    {
-      id: '11',
-      name: 'Select1',
-    },
-    {
-      id: '22',
-      name: 'Select2',
-    },
-    {
-      id: '33',
-      name: 'Select3',
-    },
+  const countryOptions = [
+    { id: '1', name: 'アメリカ' },
+    { id: '2', name: 'カナダ' },
+    { id: '3', name: 'イギリス' },
+    { id: '4', name: 'オーストラリア' },
+    { id: '5', name: 'ドイツ' },
+    { id: '6', name: 'フランス' },
+    { id: '7', name: '日本' },
   ]
 
-  const optionsVer2 = [
-    { label: 'A', value: 'A' },
-    { label: 'BBBBBB', value: 'BBBBB' },
-    { label: 'CCC', value: 'CCC' },
-    { label: 'Z', value: 'Z' },
-    { label: 'X', value: 'X' },
-    { label: 'S', value: 'S' },
-    { label: 'Q', value: 'Q' },
-    { label: 'W', value: 'W' },
-    { label: 'E', value: 'E' },
+  const programmingLanguages = [
+    { label: 'JavaScript', value: 'JavaScript' },
+    { label: 'Python', value: 'Python' },
+    { label: 'Java', value: 'Java' },
+    { label: 'C++', value: 'C++' },
+    { label: 'C#', value: 'C#' },
+    { label: 'TypeScript', value: 'TypeScript' },
+    { label: 'Ruby', value: 'Ruby' },
+    { label: 'Go', value: 'Go' },
+    { label: 'Swift', value: 'Swift' },
+    { label: 'Kotlin', value: 'Kotlin' },
   ]
 
   const {
@@ -58,7 +54,7 @@ export const Form: React.FC<Props> = ({ onClick }: Props) => {
           <Input type='number' name='num' label='数値' isRequired />
         </div>
         <div className='flex w-full flex-col gap-x-5'>
-          <div>
+          <div className='py-2 text-xl'>
             通知<span className='text-2xl text-red-500'>*</span>
           </div>
           <div className='flex gap-x-5'>
@@ -67,11 +63,11 @@ export const Form: React.FC<Props> = ({ onClick }: Props) => {
           </div>
         </div>
         <div className='flex w-full gap-x-5'>
-          <Select label='セレクトボックス' name='selectBox' options={optionsVer1} />
+          <Select label='セレクトボックス' name='selectBox' options={countryOptions} isRequired />
         </div>
       </div>
       <div className='my-5'>
-        <ReactSelect label='タグ選択' name='multi' options={optionsVer2} />
+        <ReactSelect label='タグ選択' name='multi' options={programmingLanguages} isRequired />
       </div>
       <div>
         <Textarea label='テキストエリア' name='note' />

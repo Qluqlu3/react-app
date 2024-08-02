@@ -41,7 +41,7 @@ export const ReactSelect: React.FC<Props> = ({ label, name, options, placeholder
 
   return (
     <div>
-      <div>
+      <div className='py-2 text-xl'>
         {label}
         {isRequired && <span className='text-2xl text-red-500'>*</span>}
       </div>
@@ -59,7 +59,7 @@ export const ReactSelect: React.FC<Props> = ({ label, name, options, placeholder
             onChange={(newValue) => handleOnChange(newValue, field)}
             closeMenuOnSelect={false}
             placeholder={placeholder}
-            className='text-black'
+            className='text-2xl text-black'
             styles={customStyles}
           />
         )}

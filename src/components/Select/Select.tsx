@@ -13,8 +13,11 @@ export const Select: React.FC<Props> = ({ label, name, options, isRequired = fal
   const { register } = useFormContext()
   return (
     <div className='w-full'>
-      <div>{label}</div>
-      <select {...register(name)} className='w-1/2'>
+      <div className='py-2 text-xl'>
+        {label}
+        {isRequired && <span className='text-2xl text-red-500'>*</span>}
+      </div>
+      <select {...register(name)} className='min-w-fit text-2xl'>
         <option disabled selected className='none'>
           選択してください
         </option>

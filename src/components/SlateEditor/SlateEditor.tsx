@@ -15,7 +15,7 @@ export const SlateEditor: React.FC<Props> = ({}: Props) => {
   const initialValue: Descendant[] = [
     {
       type: 'paragraph',
-      children: [{ text: 'This is editable text.' }],
+      children: [{ text: 'サンプルテキスト' }],
     },
   ]
 
