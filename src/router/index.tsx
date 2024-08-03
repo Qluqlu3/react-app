@@ -1,7 +1,7 @@
 import { Outlet, createRoute, createRootRoute, createRouter } from '@tanstack/react-router'
 
 import { App } from '../App'
-import { About, NotFound, Home, Slate } from '../pages'
+import { About, NotFound, Home, Slate, Chakra } from '../pages'
 
 const rootRoute = createRootRoute({
   component: () => (
@@ -31,7 +31,13 @@ const slateRoute = createRoute({
   component: () => <Slate />,
 })
 
-const routeTree = rootRoute.addChildren([indexRoute, aboutRoute, slateRoute])
+const chakraRoute = createRoute({
+  getParentRoute: () => rootRoute,
+  path: '/chakra',
+  component: () => <Chakra />,
+})
+
+const routeTree = rootRoute.addChildren([indexRoute, aboutRoute, slateRoute, chakraRoute])
 
 export const router = createRouter({ routeTree })
 
