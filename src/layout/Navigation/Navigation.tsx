@@ -10,6 +10,7 @@ export const Navigation = () => {
     root: '/',
     about: '/about',
     slate: '/slate',
+    chakra: '/chakra',
   } as const
 
   return (
@@ -32,6 +33,11 @@ export const Navigation = () => {
       <div>
         <Link to={URL.slate} className={clsx(currentPath === URL.slate && 'text-green-500')}>
           Slate
+        </Link>
+      </div>
+      <div>
+        <Link to={URL.chakra} className={clsx(currentPath === URL.chakra && 'text-green-500')}>
+          Chakra
         </Link>
       </div>
     </div>
