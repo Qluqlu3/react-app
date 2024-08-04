@@ -1,3 +1,5 @@
+import React, { useCallback } from 'react'
+
 import { DeleteIcon } from '@chakra-ui/icons'
 import {
   Card,
@@ -12,7 +14,6 @@ import {
   Text,
   Switch,
 } from '@chakra-ui/react'
-import React, { useCallback } from 'react'
 
 interface CardItem {
   id: string
@@ -23,13 +24,13 @@ interface CardItem {
 }
 
 interface Props extends CardItem {
-  onDelete: (id: CardItem['id']) => void
+  onDelete: (id: string) => void
 }
 
 export const ChakraCard: React.FC<Props> = ({ id, title, content, email, notification, onDelete }: Props) => {
   const deleteCard = useCallback(() => {
     onDelete(id)
-  }, [onDelete])
+  }, [id, onDelete])
 
   return (
     <Card key={id} backgroundColor='whitesmoke' textColor='black'>

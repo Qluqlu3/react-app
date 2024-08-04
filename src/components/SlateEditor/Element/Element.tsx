@@ -1,7 +1,8 @@
 import React from 'react'
-import { ReactEditor, RenderElementProps } from 'slate-react'
-import { HistoryEditor } from 'slate-history'
+
 import { BaseEditor } from 'slate'
+import { HistoryEditor } from 'slate-history'
+import { ReactEditor, RenderElementProps } from 'slate-react'
 
 type CustomText = { text: string }
 

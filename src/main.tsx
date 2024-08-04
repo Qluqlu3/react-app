@@ -1,14 +1,10 @@
 import React from 'react'
-import ReactDOM from 'react-dom/client'
+
 import { ChakraProvider } from '@chakra-ui/react'
 import { RouterProvider } from '@tanstack/react-router'
-import { router } from './router'
+import ReactDOM from 'react-dom/client'
 
-declare module '@tanstack/react-router' {
-  interface Register {
-    router: typeof router
-  }
-}
+import { router } from './router'
 
 ReactDOM.createRoot(document.getElementById('root')!).render(
   <React.StrictMode>

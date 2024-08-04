@@ -1,4 +1,5 @@
 import React, { useCallback, useState } from 'react'
+
 import {
   Button,
   Checkbox,
@@ -13,20 +14,12 @@ import {
   Switch,
   Stack,
   Box,
-  HStack,
-  Text,
   Textarea,
-  Card,
   useToast,
-  CardBody,
-  CardHeader,
-  Tag,
-  IconButton,
-  Tooltip,
 } from '@chakra-ui/react'
 import { nanoid } from 'nanoid'
 import { useForm } from 'react-hook-form'
-import { DeleteIcon } from '@chakra-ui/icons'
+
 import { ChakraCard } from '../../components'
 
 interface CardItem {
@@ -58,7 +51,7 @@ export const Chakra: React.FC = () => {
       ])
       reset()
     },
-    [cardList],
+    [cardList, reset],
   )
 
   const deleteCard = useCallback(
@@ -133,7 +126,7 @@ export const Chakra: React.FC = () => {
       </form>
       <Grid templateColumns='repeat(2, 1fr)' gap='3' marginTop='5'>
         {cardList.map((card) => (
-          <ChakraCard {...card} onDelete={deleteCard} />
+          <ChakraCard key={card.id} {...card} onDelete={deleteCard} />
         ))}
       </Grid>
     </Box>

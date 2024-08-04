@@ -1,11 +1,13 @@
 import React from 'react'
+
 import { useFormContext } from 'react-hook-form'
+
+import { Button } from '../Button'
 import { Input } from '../Input'
 import { Radio } from '../Radio'
 import { ReactSelect } from '../ReactSelect'
-import { Textarea } from '../Textarea'
 import { Select } from '../Select'
-import { Button } from '../Button'
+import { Textarea } from '../Textarea'
 
 interface Props {
   onClick: () => void
@@ -41,6 +43,7 @@ export const Form: React.FC<Props> = ({ onClick }: Props) => {
   } = useFormContext()
 
   const onSubmit = (value: unknown) => {
+    // eslint-disable-next-line no-console
     console.log('SUBMIT', value)
   }
 

@@ -1,17 +1,17 @@
 import React, { useCallback, useMemo, useState } from 'react'
+
 import { createEditor, Descendant } from 'slate'
+import { withHistory } from 'slate-history'
 import { RenderElementProps, Slate, Editable, withReact, RenderLeafProps } from 'slate-react'
+
 import { Element } from './Element'
 import { Toolbar } from './Toolbar'
-import { withHistory } from 'slate-history'
-
-interface Props {}
 
 const Leaf: React.FC<RenderLeafProps> = ({ attributes, children }) => {
   return <span {...attributes}>{children}</span>
 }
 
-export const SlateEditor: React.FC<Props> = ({}: Props) => {
+export const SlateEditor: React.FC = () => {
   const initialValue: Descendant[] = [
     {
       type: 'paragraph',
