@@ -1,7 +1,9 @@
+import React, { useCallback } from 'react'
+
 import clsx from 'clsx'
-import { useCallback } from 'react'
 import { BsTypeH1, BsTypeH2, BsTypeH3 } from 'react-icons/bs'
 import { Editor, Transforms, Element } from 'slate'
+
 import { ElementType } from '../Element'
 
 interface Props {
@@ -11,21 +13,27 @@ interface Props {
 const ICON_SIZE = 20
 
 export const Toolbar: React.FC<Props> = ({ editor }: Props) => {
-  const isBlockActive = useCallback((editor: any, format: string) => {
+  const isBlockActive = useCallback((editor: Editor, format: string) => {
     const [match] = Editor.nodes(editor, {
       match: (n) => !Editor.isEditor(n) && Element.isElement(n) && n.type === format,
     })
     return !!match
   }, [])
 
-  const toggleBlock = useCallback((editor: Editor, format: ElementType) => {
-    const isActive = isBlockActive(editor, format)
-    Transforms.setNodes(editor, { type: isActive ? 'paragraph' : format })
-  }, [])
+  const toggleBlock = useCallback(
+    (editor: Editor, format: ElementType) => {
+      const isActive = isBlockActive(editor, format)
+      Transforms.setNodes(editor, { type: isActive ? 'paragraph' : format })
+    },
+    [isBlockActive],
+  )
 
-  const handleMouseDownIcon = useCallback((format: ElementType) => {
-    toggleBlock(editor, format)
-  }, [])
+  const handleMouseDownIcon = useCallback(
+    (format: ElementType) => {
+      toggleBlock(editor, format)
+    },
+    [editor, toggleBlock],
+  )
 
   return (
     <div className='my-5 flex h-[100px] w-full flex-row items-start justify-start gap-x-5 rounded-sm bg-white p-2'>

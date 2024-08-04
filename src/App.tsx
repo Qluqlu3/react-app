@@ -1,7 +1,11 @@
+import React from 'react'
+
+import { Link } from '@tanstack/react-router'
+
 import reactLogo from './assets/react.svg'
 import { Navigation } from './layout/Navigation'
+
 import viteLogo from '/vite.svg'
-import { Link } from '@tanstack/react-router'
 
 const ICON_SIZE = 80
 

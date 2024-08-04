@@ -1,8 +1,10 @@
-import { Link } from '@tanstack/react-router'
+import React from 'react'
+
 import { createBrowserHistory } from '@tanstack/history'
+import { Link } from '@tanstack/react-router'
 import clsx from 'clsx'
 
-export const Navigation = () => {
+export const Navigation: React.FC = () => {
   const { location } = createBrowserHistory()
   const currentPath = location.pathname
 

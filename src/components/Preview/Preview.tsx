@@ -1,4 +1,7 @@
+import React from 'react'
+
 import { useFormContext } from 'react-hook-form'
+
 import { Button } from '../Button'
 import { Tag } from '../Tag'
 
@@ -36,7 +39,7 @@ export const Preview: React.FC<Props> = ({ onClickBack }: Props) => {
           <div className='w-full text-3xl'>
             <div className='flex flex-wrap gap-3 p-2'>
               {multi.map((value) => (
-                <Tag label={value} />
+                <Tag key={value} label={value} />
               ))}
             </div>
           </div>

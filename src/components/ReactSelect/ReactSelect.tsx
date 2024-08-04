@@ -1,5 +1,5 @@
-import { clsx } from 'clsx'
 import React, { useCallback } from 'react'
+
 import { Controller, ControllerRenderProps, FieldValues, useFormContext } from 'react-hook-form'
 import Select, { MultiValue, StylesConfig } from 'react-select'
 

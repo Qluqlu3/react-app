@@ -1,3 +1,5 @@
+import React from 'react'
+
 import { Outlet, createRoute, createRootRoute, createRouter } from '@tanstack/react-router'
 
 import { App } from '../App'
@@ -40,9 +42,3 @@ const chakraRoute = createRoute({
 const routeTree = rootRoute.addChildren([indexRoute, aboutRoute, slateRoute, chakraRoute])
 
 export const router = createRouter({ routeTree })
-
-declare module '@tanstack/react-router' {
-  interface Register {
-    router: typeof router
-  }
-}
