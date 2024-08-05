@@ -16,6 +16,16 @@ import {
   Box,
   Textarea,
   useToast,
+  useSteps,
+  Stepper,
+  Step,
+  StepIndicator,
+  StepStatus,
+  StepTitle,
+  StepDescription,
+  StepIcon,
+  StepNumber,
+  StepSeparator,
 } from '@chakra-ui/react'
 import { nanoid } from 'nanoid'
 import { useForm } from 'react-hook-form'
@@ -39,6 +49,16 @@ export const Chakra: React.FC = () => {
   } = useForm<CardItem>()
   const [cardList, setCardList] = useState<CardItem[]>([])
   const toast = useToast()
+
+  const steps = [
+    { title: '①', description: '始めに' },
+    { title: '②', description: '次に' },
+  ]
+
+  const { activeStep } = useSteps({
+    index: 1,
+    count: steps.length,
+  })
 
   const createCard = useCallback(
     ({ ...value }: Omit<CardItem, 'id'>) => {
@@ -83,6 +103,20 @@ export const Chakra: React.FC = () => {
           </Badge>
         </GridItem>
       </Grid>
+      <Stepper index={activeStep}>
+        {steps.map((step, index) => (
+          <Step key={index}>
+            <StepIndicator>
+              <StepStatus complete={<StepIcon />} incomplete={<StepNumber />} active={<StepNumber />} />
+            </StepIndicator>
+            <Box flexShrink='0'>
+              <StepTitle>{step.title}</StepTitle>
+              <StepDescription>{step.description}</StepDescription>
+            </Box>
+            <StepSeparator />
+          </Step>
+        ))}
+      </Stepper>
       <form onSubmit={handleSubmit(createCard)}>
         <Stack rowGap='5'>
           <FormControl isRequired>

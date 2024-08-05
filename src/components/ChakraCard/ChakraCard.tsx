@@ -1,4 +1,4 @@
-import React, { useCallback } from 'react'
+import React, { useCallback, useRef } from 'react'
 
 import { DeleteIcon } from '@chakra-ui/icons'
 import {
@@ -13,6 +13,9 @@ import {
   Tooltip,
   Text,
   Switch,
+  useDisclosure,
+  AlertDialog,
+  AlertDialogOverlay,
 } from '@chakra-ui/react'
 
 interface CardItem {
@@ -28,6 +31,9 @@ interface Props extends CardItem {
 }
 
 export const ChakraCard: React.FC<Props> = ({ id, title, content, email, notification, onDelete }: Props) => {
+  const { isOpen, onOpen, onClose } = useDisclosure()
+  const cancelRef = useRef()
+  // 削除のアラートを実装
   const deleteCard = useCallback(() => {
     onDelete(id)
   }, [id, onDelete])
@@ -38,7 +44,10 @@ export const ChakraCard: React.FC<Props> = ({ id, title, content, email, notific
         <HStack justifyContent='space-between'>
           <Heading size='md'>{title}</Heading>
           <Tooltip label='削除' hasArrow>
-            <IconButton colorScheme='green' size='md' icon={<DeleteIcon />} aria-label='delete' onClick={deleteCard} />
+            <IconButton colorScheme='red' size='md' icon={<DeleteIcon />} aria-label='delete' onClick={deleteCard} />
+            <AlertDialog leastDestructiveRef={cancelRef.current} isOpen={isOpen} onClose={onClose}>
+              <AlertDialogOverlay></AlertDialogOverlay>
+            </AlertDialog>
           </Tooltip>
         </HStack>
       </CardHeader>
