@@ -16,6 +16,10 @@ import {
   useDisclosure,
   AlertDialog,
   AlertDialogOverlay,
+  AlertDialogContent,
+  AlertDialogBody,
+  AlertDialogFooter,
+  Button,
 } from '@chakra-ui/react'
 
 interface CardItem {
@@ -32,8 +36,7 @@ interface Props extends CardItem {
 
 export const ChakraCard: React.FC<Props> = ({ id, title, content, email, notification, onDelete }: Props) => {
   const { isOpen, onOpen, onClose } = useDisclosure()
-  const cancelRef = useRef()
-  // 削除のアラートを実装
+  const cancelRef = useRef<HTMLButtonElement>(null)
   const deleteCard = useCallback(() => {
     onDelete(id)
   }, [id, onDelete])
@@ -44,9 +47,19 @@ export const ChakraCard: React.FC<Props> = ({ id, title, content, email, notific
         <HStack justifyContent='space-between'>
           <Heading size='md'>{title}</Heading>
           <Tooltip label='削除' hasArrow>
-            <IconButton colorScheme='red' size='md' icon={<DeleteIcon />} aria-label='delete' onClick={deleteCard} />
-            <AlertDialog leastDestructiveRef={cancelRef.current} isOpen={isOpen} onClose={onClose}>
-              <AlertDialogOverlay></AlertDialogOverlay>
+            <IconButton colorScheme='red' size='md' icon={<DeleteIcon />} aria-label='delete-button' onClick={onOpen} />
+            <AlertDialog leastDestructiveRef={cancelRef} isOpen={isOpen} onClose={onClose}>
+              <AlertDialogOverlay>
+                <AlertDialogContent>
+                  <AlertDialogBody>削除しますか？</AlertDialogBody>
+                  <AlertDialogFooter>
+                    <Button ref={cancelRef} onClick={onClose}>
+                      Cancel
+                    </Button>
+                    <Button colorScheme='red' size='md' onClick={deleteCard} />
+                  </AlertDialogFooter>
+                </AlertDialogContent>
+              </AlertDialogOverlay>
             </AlertDialog>
           </Tooltip>
         </HStack>
