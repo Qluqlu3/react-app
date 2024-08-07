@@ -51,12 +51,13 @@ export const Chakra: React.FC = () => {
   const toast = useToast()
 
   const steps = [
-    { title: '①', description: '始めに' },
-    { title: '②', description: '次に' },
+    { title: '1', description: '始めに' },
+    { title: '2', description: '記入' },
+    { title: '3', description: '完了' },
   ]
 
   const { activeStep } = useSteps({
-    index: 1,
+    index: 0,
     count: steps.length,
   })
 
@@ -146,6 +147,7 @@ export const Chakra: React.FC = () => {
             onClick={() =>
               toast({
                 position: 'top-right',
+                isClosable: true,
                 render: () => (
                   <Box color='white' p='3' bg='green.700' rounded='lg'>
                     作成完了

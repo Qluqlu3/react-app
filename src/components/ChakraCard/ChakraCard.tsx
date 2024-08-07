@@ -20,6 +20,7 @@ import {
   AlertDialogBody,
   AlertDialogFooter,
   Button,
+  AlertDialogHeader,
 } from '@chakra-ui/react'
 
 interface CardItem {
@@ -47,20 +48,40 @@ export const ChakraCard: React.FC<Props> = ({ id, title, content, email, notific
         <HStack justifyContent='space-between'>
           <Heading size='md'>{title}</Heading>
           <Tooltip label='削除' hasArrow>
-            <IconButton colorScheme='red' size='md' icon={<DeleteIcon />} aria-label='delete-button' onClick={onOpen} />
-            <AlertDialog leastDestructiveRef={cancelRef} isOpen={isOpen} onClose={onClose}>
-              <AlertDialogOverlay>
-                <AlertDialogContent>
-                  <AlertDialogBody>削除しますか？</AlertDialogBody>
-                  <AlertDialogFooter>
-                    <Button ref={cancelRef} onClick={onClose}>
-                      Cancel
-                    </Button>
-                    <Button colorScheme='red' size='md' onClick={deleteCard} />
-                  </AlertDialogFooter>
-                </AlertDialogContent>
-              </AlertDialogOverlay>
-            </AlertDialog>
+            <>
+              <IconButton
+                colorScheme='red'
+                size='md'
+                icon={<DeleteIcon />}
+                aria-label='delete-button'
+                onClick={onOpen}
+              />
+              <AlertDialog
+                leastDestructiveRef={cancelRef}
+                motionPreset='slideInBottom'
+                isOpen={isOpen}
+                onClose={onClose}
+                closeOnOverlayClick
+                isCentered
+              >
+                <AlertDialogOverlay>
+                  <AlertDialogContent>
+                    <AlertDialogHeader></AlertDialogHeader>
+                    <AlertDialogBody display='flex' justifyContent='center' alignItems='center' padding='3'>
+                      削除しますか？
+                    </AlertDialogBody>
+                    <AlertDialogFooter display='flex' columnGap='5'>
+                      <Button ref={cancelRef} onClick={onClose}>
+                        キャンセル
+                      </Button>
+                      <Button colorScheme='red' size='md' onClick={deleteCard}>
+                        削除
+                      </Button>
+                    </AlertDialogFooter>
+                  </AlertDialogContent>
+                </AlertDialogOverlay>
+              </AlertDialog>
+            </>
           </Tooltip>
         </HStack>
       </CardHeader>
