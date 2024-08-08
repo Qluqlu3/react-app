@@ -50,8 +50,9 @@ export const Preview: React.FC<Props> = ({ onClickBack }: Props) => {
         </div>
         <div></div>
       </div>
-      <div className='mt-5 flex w-full flex-1 justify-end'>
+      <div className='mt-5 flex w-full flex-1 justify-end gap-x-5'>
         <Button label='戻る' variant='secondary' onClick={onClickBack} />
+        <Button type='submit' label='送信' variant='primary' />
       </div>
     </div>
   )

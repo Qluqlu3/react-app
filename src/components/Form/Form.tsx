@@ -2,6 +2,7 @@ import React from 'react'
 
 import { useFormContext } from 'react-hook-form'
 
+import { FormInput } from '../../pages'
 import { Button } from '../Button'
 import { Input } from '../Input'
 import { Radio } from '../Radio'
@@ -38,17 +39,11 @@ export const Form: React.FC<Props> = ({ onClick }: Props) => {
   ]
 
   const {
-    handleSubmit,
     formState: { isValid },
-  } = useFormContext()
-
-  const onSubmit = (value: unknown) => {
-    // eslint-disable-next-line no-console
-    console.log('SUBMIT', value)
-  }
+  } = useFormContext<FormInput>()
 
   return (
-    <form onSubmit={handleSubmit(onSubmit)} defaultValue={''} id='about-form-id'>
+    <>
       <div className='grid grid-cols-2 gap-x-8'>
         <div className='w-full'>
           <Input name='text' label='テキスト' isRequired />
@@ -78,6 +73,6 @@ export const Form: React.FC<Props> = ({ onClick }: Props) => {
       <div className='mt-3 flex justify-end'>
         <Button label='Preview' isDisabled={!isValid} onClick={onClick} />
       </div>
-    </form>
+    </>
   )
 }
