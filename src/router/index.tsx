@@ -3,7 +3,7 @@ import React from 'react'
 import { Outlet, createRoute, createRootRoute, createRouter } from '@tanstack/react-router'
 
 import { App } from '../App'
-import { About, NotFound, Home, Slate, Chakra } from '../pages'
+import { About, NotFound, Home, Slate, Chakra, Csv } from '../pages'
 
 const rootRoute = createRootRoute({
   component: () => (
@@ -39,6 +39,12 @@ const chakraRoute = createRoute({
   component: () => <Chakra />,
 })
 
-const routeTree = rootRoute.addChildren([indexRoute, aboutRoute, slateRoute, chakraRoute])
+const csvRoute = createRoute({
+  getParentRoute: () => rootRoute,
+  path: '/csv',
+  component: () => <Csv />,
+})
+
+const routeTree = rootRoute.addChildren([indexRoute, aboutRoute, slateRoute, chakraRoute, csvRoute])
 
 export const router = createRouter({ routeTree })

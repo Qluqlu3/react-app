@@ -13,6 +13,7 @@ export const Navigation: React.FC = () => {
     about: '/about',
     slate: '/slate',
     chakra: '/chakra',
+    csv: '/csv',
   } as const
 
   return (
@@ -27,11 +28,6 @@ export const Navigation: React.FC = () => {
           About
         </Link>
       </div>
-      {/* <div>
-        <Link to="/NotFound" className="text-red-500">
-          NotFound
-        </Link>
-      </div> */}
       <div>
         <Link to={URL.slate} className={clsx(currentPath === URL.slate && 'text-green-500')}>
           Slate
@@ -40,6 +36,11 @@ export const Navigation: React.FC = () => {
       <div>
         <Link to={URL.chakra} className={clsx(currentPath === URL.chakra && 'text-green-500')}>
           Chakra
+        </Link>
+      </div>
+      <div>
+        <Link to={URL.csv} className={clsx(currentPath === URL.csv && 'text-green-500')}>
+          CSV
         </Link>
       </div>
     </div>

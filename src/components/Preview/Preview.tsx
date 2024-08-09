@@ -14,10 +14,8 @@ export const Preview: React.FC<Props> = ({ onClickBack }: Props) => {
   const text: string = getValues('text')
   const num: number = getValues('num')
   const notification: string = getValues('notification')
-  // const note = getValues('note')
+  const note = getValues('note')
   const multi: string[] = getValues('multi')
-
-  // console.log(multi)
 
   return (
     <div className='mt-3 w-full'>
@@ -44,11 +42,10 @@ export const Preview: React.FC<Props> = ({ onClickBack }: Props) => {
             </div>
           </div>
         </div>
-        <div>
-          {/* <div className='text-2xl'>数値</div>
-          <div className='w-full text-3xl'>{num}</div> */}
+        <div className='w-ful col-span-2'>
+          <div className='text-xl'>note</div>
+          <div className='w-full text-wrap text-xl'>{note}</div>
         </div>
-        <div></div>
       </div>
       <div className='mt-5 flex w-full flex-1 justify-end gap-x-5'>
         <Button label='戻る' variant='secondary' onClick={onClickBack} />

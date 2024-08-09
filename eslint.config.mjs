@@ -66,7 +66,6 @@ export default [
       ],
       'react/prop-types': 'off',
       quotes: ['error', 'single'],
-      eqeqeq: 'error',
       'prefer-const': 'error',
       'no-console': 'warn',
       'react/jsx-key': 'warn',

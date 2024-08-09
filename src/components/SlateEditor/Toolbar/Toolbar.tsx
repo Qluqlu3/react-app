@@ -36,7 +36,7 @@ export const Toolbar: React.FC<Props> = ({ editor }: Props) => {
   )
 
   return (
-    <div className='my-5 flex h-[100px] w-full flex-row items-start justify-start gap-x-5 rounded-sm bg-white p-2'>
+    <div className='my-5 flex h-[100px] w-full flex-row items-start justify-start gap-x-5 rounded-sm bg-slate-300 p-2'>
       <button onClick={() => handleMouseDownIcon('heading-one')}>
         <BsTypeH1
           size={ICON_SIZE}
