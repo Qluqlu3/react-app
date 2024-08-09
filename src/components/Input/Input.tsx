@@ -3,9 +3,9 @@ import React from 'react'
 import { useFormContext } from 'react-hook-form'
 
 type Props = {
-  type?: 'text' | 'number'
   name: string
   label: string
+  type?: 'number' | 'text'
   isRequired?: boolean
 }
 

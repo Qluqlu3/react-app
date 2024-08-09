@@ -11,13 +11,13 @@ type ParagraphElement = { type: 'paragraph'; children: CustomText[] }
 type HeadingOneElement = { type: 'heading-one'; children: CustomText[] }
 type HeadingTwoElement = { type: 'heading-two'; children: CustomText[] }
 type HeadingThreeElement = { type: 'heading-three'; children: CustomText[] }
-type CustomElement = ParagraphElement | HeadingOneElement | HeadingTwoElement | HeadingThreeElement
+type CustomElement = HeadingOneElement | HeadingThreeElement | HeadingTwoElement | ParagraphElement
 
-export type ElementType = 'paragraph' | 'heading-one' | 'heading-two' | 'heading-three'
+export type ElementType = 'heading-one' | 'heading-three' | 'heading-two' | 'paragraph'
 
 declare module 'slate' {
   interface CustomTypes {
-    Editor: BaseEditor & ReactEditor & HistoryEditor
+    Editor: BaseEditor & HistoryEditor & ReactEditor
     Element: CustomElement
     Text: CustomText
   }
