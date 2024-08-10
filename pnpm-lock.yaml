@@ -32,9 +32,6 @@ importers:
       '@tanstack/react-router':
         specifier: ^1.29.2
         version: 1.46.2(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
-      '@tanstack/router':
-        specifier: 0.0.1-beta.53
-        version: 0.0.1-beta.53
       '@types/papaparse':
         specifier: ^5.3.14
         version: 5.3.14
@@ -68,6 +65,9 @@ importers:
       react:
         specifier: ^18.2.0
         version: 18.3.1
+      react-data-grid:
+        specifier: 7.0.0-beta.46
+        version: 7.0.0-beta.46(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
       react-dom:
         specifier: ^18.2.0
         version: 18.3.1(react@18.3.1)
@@ -1249,14 +1249,6 @@ packages:
       react: ^17.0.0 || ^18.0.0
       react-dom: ^17.0.0 || ^18.0.0
 
-  '@tanstack/router@0.0.1-beta.53':
-    resolution: {integrity: sha512-nX1avh939ufOCoXhJ5wihX/ft6sn50ARrj4FAhRYn50KKzo9fXsYSmPyVgqVdW0hJ4n9XXKIMkwwpzEhLQmqrA==}
-    engines: {node: '>=12'}
-
-  '@tanstack/store@0.0.1-beta.52':
-    resolution: {integrity: sha512-3/5XqeG09sCJnakHpq8qgXjdVpm97aITbi1wfbjLGXdVsss62zpJAvc4vL8ccHf+J/OmoS4dJTNuEZ0alywZtg==}
-    engines: {node: '>=12'}
-
   '@tanstack/store@0.5.5':
     resolution: {integrity: sha512-EOSrgdDAJExbvRZEQ/Xhh9iZchXpMN+ga1Bnk8Nmygzs8TfiE6hbzThF+Pr2G19uHL6+DTDTHhJ8VQiOd7l4tA==}
 
@@ -2135,9 +2127,6 @@ packages:
   immer@10.1.1:
     resolution: {integrity: sha512-s2MPrmjovJcoMaHtx6K11Ra7oD05NT97w1IC5zpMkT6Atjr7H8LjaDd81iIxUYpMKSRRNMJE703M1Fhr/TctHw==}
 
-  immer@9.0.21:
-    resolution: {integrity: sha512-bc4NBHqOqSfRW7POMkHd51LvClaeMXpm8dx0e8oE2GORbq5aRK7Bxl4FyzVLdGtLmvLKL7BTDBG5ACQm4HWjTA==}
-
   immutable@3.8.2:
     resolution: {integrity: sha512-15gZoQ38eYjEjxkorfbcgBKBL6R7T459OuK+CpcWt7O3KF4uPCx2tD0uFETlUDIyo+1789crbMhTvQBSR5yBMg==}
     engines: {node: '>=0.10.0'}
@@ -2712,6 +2701,12 @@ packages:
     resolution: {integrity: sha512-XGGGRQAKY+q25Lz9a/4EPqom7WRjz3z9R2k4jhVKA/puQFH/5Nt27vFZYql4m4NVNdUvX8PS3O7r/Zzm7cjUlg==}
     peerDependencies:
       react: ^15.3.0 || ^16.0.0 || ^17.0.0 || ^18.0.0
+
+  react-data-grid@7.0.0-beta.46:
+    resolution: {integrity: sha512-tU6sYNgbMw3mQphPyLN5jtG2TD84I0XcebPQQ2apCZuDX9Nqu7MCkTTIluXBnIzIW3LLS8XEp+Ml7OhEQoFKRA==}
+    peerDependencies:
+      react: ^18.0 || ^19.0
+      react-dom: ^18.0 || ^19.0
 
   react-dom@18.3.1:
     resolution: {integrity: sha512-5m4nQKp+rZRb09LNH59GM4BxTh9251/ylbKIbpe7TpGxfJ+9kv6BLkLBXIjjspbgbnIBNqlI23tRnTWT0snUIw==}
@@ -4495,16 +4490,6 @@ snapshots:
       react-dom: 18.3.1(react@18.3.1)
       use-sync-external-store: 1.2.2(react@18.3.1)
 
-  '@tanstack/router@0.0.1-beta.53':
-    dependencies:
-      '@babel/runtime': 7.25.0
-      '@tanstack/store': 0.0.1-beta.52
-      tiny-invariant: 1.3.3
-
-  '@tanstack/store@0.0.1-beta.52':
-    dependencies:
-      immer: 9.0.21
-
   '@tanstack/store@0.5.5': {}
 
   '@types/estree@1.0.5': {}
@@ -5578,8 +5563,6 @@ snapshots:
 
   immer@10.1.1: {}
 
-  immer@9.0.21: {}
-
   immutable@3.8.2: {}
 
   import-fresh@3.3.0:
@@ -6022,6 +6005,12 @@ snapshots:
     dependencies:
       '@babel/runtime': 7.25.0
       react: 18.3.1
+
+  react-data-grid@7.0.0-beta.46(react-dom@18.3.1(react@18.3.1))(react@18.3.1):
+    dependencies:
+      clsx: 2.1.1
+      react: 18.3.1
+      react-dom: 18.3.1(react@18.3.1)
 
   react-dom@18.3.1(react@18.3.1):
     dependencies:
