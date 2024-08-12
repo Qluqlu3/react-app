@@ -2,8 +2,7 @@ import React from 'react'
 
 import { useFormContext } from 'react-hook-form'
 
-import { Button } from '../Button'
-import { Tag } from '../Tag'
+import { Button, Tag } from '../form'
 
 interface Props {
   onClickBack: () => void

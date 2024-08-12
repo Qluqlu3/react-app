@@ -3,18 +3,18 @@ import React from 'react'
 import { useFormContext } from 'react-hook-form'
 
 import { FormInput } from '../../pages'
-import { Button } from '../Button'
-import { Input } from '../Input'
-import { Radio } from '../Radio'
-import { ReactSelect } from '../ReactSelect'
-import { Select } from '../Select'
-import { Textarea } from '../Textarea'
+import { Button } from '../form/Button'
+import { Input } from '../form/Input'
+import { Radio } from '../form/Radio'
+import { ReactSelect } from '../form/ReactSelect'
+import { Select } from '../form/Select'
+import { Textarea } from '../form/Textarea'
 
 interface Props {
   onClick: () => void
 }
 
-export const Form: React.FC<Props> = ({ onClick }: Props) => {
+export const AboutForm: React.FC<Props> = ({ onClick }: Props) => {
   const countryOptions = [
     { id: '1', name: 'アメリカ' },
     { id: '2', name: 'カナダ' },
