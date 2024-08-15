@@ -1,15 +1,20 @@
 import React from 'react'
 
 import { Link } from '@tanstack/react-router'
+import { FaCommentDots, FaFileCsv, FaHome, FaPaintBrush, FaRegEdit, FaVideo } from 'react-icons/fa'
+
+const ICON_SIZE = '38'
 
 export const Navigation: React.FC = () => {
-  const URL = {
-    root: '/',
-    about: '/about',
-    slate: '/slate',
-    chakra: '/chakra',
-    csv: '/csv',
-  } as const
+  const sidebarLinks = [
+    { path: '/', Icon: FaHome, exact: true },
+    { path: '/about', Icon: FaRegEdit },
+    { path: '/slate', Icon: FaCommentDots },
+    { path: '/chakra', Icon: FaPaintBrush },
+    { path: '/csv', Icon: FaFileCsv },
+    { path: '/video', Icon: FaVideo },
+    // <FaRegNewspaper />,
+  ]
 
   const activeProps = {
     style: {
@@ -18,32 +23,14 @@ export const Navigation: React.FC = () => {
   }
 
   return (
-    <div className='mb-5 mt-3 flex flex-row rounded-md bg-gray-700 p-2 text-3xl [&>div]:px-3 [&>div]:py-2  [&>div]:text-3xl hover:[&>div]:text-green-200'>
-      <div>
-        <Link to={URL.root} activeOptions={{ exact: true }} activeProps={activeProps}>
-          Home
-        </Link>
-      </div>
-      <div>
-        <Link to={URL.about} activeProps={activeProps}>
-          About
-        </Link>
-      </div>
-      <div>
-        <Link to={URL.slate} activeProps={activeProps}>
-          Slate
-        </Link>
-      </div>
-      <div>
-        <Link to={URL.chakra} activeProps={activeProps}>
-          Chakra
-        </Link>
-      </div>
-      <div>
-        <Link to={URL.csv} activeProps={activeProps}>
-          CSV
-        </Link>
-      </div>
+    <div className='flex w-[80px] flex-col items-center gap-y-3 bg-gray-700 p-2 [&>div]:px-3 [&>div]:py-2 hover:[&>div]:text-green-200'>
+      {sidebarLinks.map(({ path, Icon, exact = false }) => (
+        <div key={path}>
+          <Link to={path} activeOptions={{ exact }} activeProps={activeProps}>
+            <Icon size={ICON_SIZE} />
+          </Link>
+        </div>
+      ))}
     </div>
   )
 }
