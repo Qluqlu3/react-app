@@ -3,13 +3,19 @@ import React from 'react'
 import { Outlet, createRoute, createRootRoute, createRouter } from '@tanstack/react-router'
 
 import { App } from '../App'
-import { About, NotFound, Home, Slate, Chakra, Csv } from '../pages'
+import { Navigation } from '../layout'
+import { About, NotFound, Home, Slate, Chakra, Csv, Video } from '../pages'
 
 const rootRoute = createRootRoute({
   component: () => (
     <>
-      <App />
-      <Outlet />
+      <div className='flex h-dvh w-full flex-row'>
+        <Navigation />
+        <div className='flex w-full flex-col px-4 py-3'>
+          <App />
+          <Outlet />
+        </div>
+      </div>
     </>
   ),
   notFoundComponent: () => <NotFound />,
@@ -45,6 +51,12 @@ const csvRoute = createRoute({
   component: () => <Csv />,
 })
 
-const routeTree = rootRoute.addChildren([indexRoute, aboutRoute, slateRoute, chakraRoute, csvRoute])
+const videoRoute = createRoute({
+  getParentRoute: () => rootRoute,
+  path: '/video',
+  component: () => <Video />,
+})
+
+const routeTree = rootRoute.addChildren([indexRoute, aboutRoute, slateRoute, chakraRoute, csvRoute, videoRoute])
 
 export const router = createRouter({ routeTree })
