@@ -1,12 +1,21 @@
 import React, { useCallback, useState } from 'react'
 
-import { CsvImport, CsvTable } from '../../components'
+import { Column } from 'react-data-grid'
+
+import { CsvImport, CsvTable, HeaderText } from '../../components'
+
+export interface Row {
+  id: string
+  data1: string
+  data2: string
+  data3: string
+}
 
 export const Csv: React.FC = () => {
-  const [rows, setRows] = useState<any[]>([])
-  const [columns, setColumns] = useState<any[]>([])
+  const [rows, setRows] = useState<Row[]>([])
+  const [columns, setColumns] = useState<Column<Row>[]>([])
 
-  const handleOnCsvParsed = useCallback((csvData: { columns: any[]; rows: any[] }) => {
+  const handleOnCsvParsed = useCallback((csvData: { columns: Column<Row>[]; rows: Row[] }) => {
     const { columns, rows } = csvData
     setColumns(columns)
     setRows(rows)
@@ -15,7 +24,7 @@ export const Csv: React.FC = () => {
 
   return (
     <div>
-      <h1 className='mb-3 border-b-2 border-green-700 text-6xl'>CSV</h1>
+      <HeaderText>CSV</HeaderText>
       <CsvImport onCsvParsed={handleOnCsvParsed} />
       <CsvTable rows={rows} columns={columns} />
     </div>

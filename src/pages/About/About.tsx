@@ -4,7 +4,7 @@ import { zodResolver } from '@hookform/resolvers/zod'
 import { FormProvider, useForm } from 'react-hook-form'
 import { z } from 'zod'
 
-import { Form, Preview } from '../../components'
+import { AboutForm, HeaderText, Preview } from '../../components'
 
 export interface FormInput {
   text: string
@@ -39,17 +39,16 @@ export const About: React.FC = () => {
   }, [])
 
   const submit = useCallback((value: FormInput) => {
-    // console.log(value)
     setFormValue(value)
     setIsPreview(false)
   }, [])
 
   return (
     <div>
-      <h1 className='mb-3 border-b-2 border-green-700 text-6xl'>Form</h1>
+      <HeaderText>Form</HeaderText>
       <FormProvider {...methods}>
         <form onSubmit={methods.handleSubmit(submit)} defaultValue={''} id='about-form-id'>
-          {isPreview ? <Preview onClickBack={handleOnClickBack} /> : <Form onClick={handleOnClickPreview} />}
+          {isPreview ? <Preview onClickBack={handleOnClickBack} /> : <AboutForm onClick={handleOnClickPreview} />}
         </form>
       </FormProvider>
       <div>
