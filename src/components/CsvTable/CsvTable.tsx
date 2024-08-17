@@ -1,11 +1,13 @@
 import React from 'react'
 
-import DataGrid from 'react-data-grid'
+import DataGrid, { Column } from 'react-data-grid'
+
 import 'react-data-grid/lib/styles.css'
+import { Row } from '../../pages'
 
 interface Props {
-  rows: any[]
-  columns: any[]
+  rows: Row[]
+  columns: Column<Row>[]
 }
 
 export const CsvTable: React.FC<Props> = ({ rows, columns }: Props) => {
