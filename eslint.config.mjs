@@ -1,10 +1,5 @@
-import path from 'node:path'
-import { fileURLToPath } from 'node:url'
-
-import { fixupConfigRules, fixupPluginRules } from '@eslint/compat'
-import { FlatCompat } from '@eslint/eslintrc'
 import js from '@eslint/js'
-import typescriptEslint from '@typescript-eslint/eslint-plugin'
+import tseslint from 'typescript-eslint'
 import tsParser from '@typescript-eslint/parser'
 import eslintImport from 'eslint-plugin-import'
 import react from 'eslint-plugin-react'
@@ -13,53 +8,32 @@ import reactRefresh from 'eslint-plugin-react-refresh'
 import simpleImportSort from 'eslint-plugin-simple-import-sort'
 import globals from 'globals'
 
-const __filename = fileURLToPath(import.meta.url)
-const __dirname = path.dirname(__filename)
-const compat = new FlatCompat({
-  baseDirectory: __dirname,
-  recommendedConfig: js.configs.recommended,
-  allConfig: js.configs.all,
-})
-
-export default [
+export default tseslint.config(
   {
     ignores: ['**/dist', 'node_modules/'],
   },
   {
+    extends: [js.configs.recommended, ...tseslint.configs.recommended],
+    files: ['**/*.{ts,tsx}'],
     settings: {
       react: {
         version: 'detect',
       },
     },
-  },
-  ...fixupConfigRules(
-    compat.extends(
-      'eslint:recommended',
-      'plugin:react/recommended',
-      'plugin:@typescript-eslint/recommended',
-      'plugin:react-hooks/recommended',
-      'plugin:prettier/recommended',
-      'prettier',
-    ),
-  ),
-  {
-    plugins: {
-      react: fixupPluginRules(react),
-      'react-refresh': fixupPluginRules(reactRefresh),
-      '@typescript-eslint': fixupPluginRules(typescriptEslint),
-      'react-hooks': fixupPluginRules(reactHooks),
-      import: fixupPluginRules(eslintImport),
-      'simple-import-sort': fixupPluginRules(simpleImportSort),
-    },
-
     languageOptions: {
-      globals: {
-        ...globals.browser,
-      },
+      ecmaVersion: 2020,
+      globals: globals.browser,
       parser: tsParser,
     },
-
+    plugins: {
+      react,
+      'react-refresh': reactRefresh,
+      'react-hooks': reactHooks,
+      import: eslintImport,
+      'simple-import-sort': simpleImportSort,
+    },
     rules: {
+      ...reactHooks.configs.recommended.rules,
       'react-refresh/only-export-components': [
         'warn',
         {
@@ -100,4 +74,4 @@ export default [
       'simple-import-sort/exports': 'error',
     },
   },
-]
+)
