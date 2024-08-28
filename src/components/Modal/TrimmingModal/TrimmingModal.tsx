@@ -37,7 +37,7 @@ export const TrimmingModal: React.FC<Props> = ({ isOpen, duration, onClose }: Pr
   }, [])
 
   return (
-    <Modal isOpen={isOpen} onClose={onClose} closeOnOverlayClick isCentered motionPreset='slideInBottom'>
+    <Modal closeOnOverlayClick isCentered isOpen={isOpen} motionPreset='slideInBottom' onClose={onClose}>
       <ModalOverlay />
       <ModalContent minW='500px'>
         <ModalHeader>Trimming</ModalHeader>
@@ -47,20 +47,20 @@ export const TrimmingModal: React.FC<Props> = ({ isOpen, duration, onClose }: Pr
             <source src={fireVideo} type='video/mp4' />
           </video>
           <RangeSlider
-            min={0}
-            max={duration}
             defaultValue={[startTime, endTime]}
-            onChange={changeTrimmingTime}
+            max={duration}
+            min={0}
             minStepsBetweenThumbs={1}
+            onChange={changeTrimmingTime}
           >
             <RangeSliderTrack h='7'>
               <RangeSliderFilledTrack bg='green.400' />
             </RangeSliderTrack>
-            <RangeSliderThumb index={0} bg='gray' h='8' />
-            <RangeSliderThumb index={1} bg='gray' h='8' />
+            <RangeSliderThumb bg='gray' h='8' index={0} />
+            <RangeSliderThumb bg='gray' h='8' index={1} />
           </RangeSlider>
         </ModalBody>
-        <ModalFooter display='flex' columnGap='3'>
+        <ModalFooter columnGap='3' display='flex'>
           <Button onClick={onClose}>Cancel</Button>
           <Button>Save</Button>
         </ModalFooter>

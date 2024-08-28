@@ -39,20 +39,20 @@ export const Toolbar: React.FC<Props> = ({ editor }: Props) => {
     <div className='my-5 flex h-[100px] w-full flex-row items-start justify-start gap-x-5 rounded-sm bg-slate-300 p-2'>
       <button onClick={() => handleMouseDownIcon('heading-one')}>
         <BsTypeH1
-          size={ICON_SIZE}
           className={clsx(isBlockActive(editor, 'heading-one') ? 'text-black' : 'text-gray-400')}
+          size={ICON_SIZE}
         />
       </button>
       <button onClick={() => handleMouseDownIcon('heading-two')}>
         <BsTypeH2
-          size={ICON_SIZE}
           className={clsx(isBlockActive(editor, 'heading-two') ? 'text-black' : 'text-gray-400')}
+          size={ICON_SIZE}
         />
       </button>
       <button onClick={() => handleMouseDownIcon('heading-three')}>
         <BsTypeH3
-          size={ICON_SIZE}
           className={clsx(isBlockActive(editor, 'heading-three') ? 'text-black' : 'text-gray-400')}
+          size={ICON_SIZE}
         />
       </button>
     </div>

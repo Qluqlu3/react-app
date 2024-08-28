@@ -47,30 +47,30 @@ export const ChakraCard: React.FC<Props> = ({ id, title, content, email, notific
       <CardHeader>
         <HStack justifyContent='space-between'>
           <Heading size='md'>{title}</Heading>
-          <Tooltip label='削除' hasArrow>
+          <Tooltip hasArrow label='削除'>
             <>
               <IconButton
-                colorScheme='red'
-                size='md'
-                icon={<DeleteIcon />}
                 aria-label='delete-button'
+                colorScheme='red'
+                icon={<DeleteIcon />}
+                size='md'
                 onClick={onOpen}
               />
               <AlertDialog
-                leastDestructiveRef={cancelRef}
-                motionPreset='slideInBottom'
-                isOpen={isOpen}
-                onClose={onClose}
                 closeOnOverlayClick
                 isCentered
+                isOpen={isOpen}
+                leastDestructiveRef={cancelRef}
+                motionPreset='slideInBottom'
+                onClose={onClose}
               >
                 <AlertDialogOverlay>
                   <AlertDialogContent>
                     <AlertDialogHeader></AlertDialogHeader>
-                    <AlertDialogBody display='flex' justifyContent='center' alignItems='center' padding='3'>
+                    <AlertDialogBody alignItems='center' display='flex' justifyContent='center' padding='3'>
                       削除しますか？
                     </AlertDialogBody>
-                    <AlertDialogFooter display='flex' columnGap='5'>
+                    <AlertDialogFooter columnGap='5' display='flex'>
                       <Button ref={cancelRef} onClick={onClose}>
                         キャンセル
                       </Button>
@@ -87,18 +87,18 @@ export const ChakraCard: React.FC<Props> = ({ id, title, content, email, notific
       </CardHeader>
       <CardBody>
         <Stack>
-          <Tag size='md' colorScheme='green' width='fit-content'>
+          <Tag colorScheme='green' size='md' width='fit-content'>
             メールアドレス
           </Tag>
           <Text fontSize='md'>{email}</Text>
-          <Tag size='lg' colorScheme='green' width='fit-content'>
+          <Tag colorScheme='green' size='lg' width='fit-content'>
             内容
           </Tag>
           <Text fontSize='md'>{content}</Text>
-          <Tag size='lg' colorScheme='green' width='fit-content'>
+          <Tag colorScheme='green' size='lg' width='fit-content'>
             通知
           </Tag>
-          <Switch isReadOnly isChecked={notification} colorScheme='green' size='lg' pointerEvents='none' />
+          <Switch isReadOnly colorScheme='green' isChecked={notification} pointerEvents='none' size='lg' />
         </Stack>
       </CardBody>
     </Card>

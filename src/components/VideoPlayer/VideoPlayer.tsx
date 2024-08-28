@@ -165,30 +165,30 @@ export const VideoPlayer: React.FC = () => {
 
   return (
     <Box>
-      <div onClick={togglePlay} onDoubleClick={handleOnDoubleClickFastForward} className='relative cursor-pointer'>
+      <div className='relative cursor-pointer' onClick={togglePlay} onDoubleClick={handleOnDoubleClickFastForward}>
         <FaPlay
-          size='100'
           className={clsx(
             'absolute left-[45%] top-[40%] z-10 transition ease-in-out',
             isPlaying ? 'opacity-0' : ' opacity-50 ',
           )}
+          size='100'
         />
-        <video ref={videoRef} loop={isRepeat} className='aspect-video'>
+        <video ref={videoRef} className='aspect-video' loop={isRepeat}>
           <source src={fireVideo} type='video/mp4' />
         </video>
       </div>
-      <Box columnGap='3' display='flex' w='full' alignItems='center' justifyContent='space-between' bg='gray.800'>
-        <Box onClick={togglePlay} w='50px' className='relative h-7 cursor-pointer' paddingLeft='1'>
+      <Box alignItems='center' bg='gray.800' columnGap='3' display='flex' justifyContent='space-between' w='full'>
+        <Box className='relative h-7 cursor-pointer' paddingLeft='1' w='50px' onClick={togglePlay}>
           <FaPause
-            size={ICON_SIZE}
             className={clsx('absolute transition duration-300 ease-in-out', isPlaying ? 'opacity-100' : 'opacity-0')}
+            size={ICON_SIZE}
           />
           <FaPlay
-            size={ICON_SIZE}
             className={clsx('absolute transition duration-300 ease-in-out', isPlaying ? 'opacity-0' : 'opacity-100')}
+            size={ICON_SIZE}
           />
         </Box>
-        <RangeSlider min={0} max={duration} value={[progress]} onChange={handleOnChangeSeekBar} marginX='2' w='100%'>
+        <RangeSlider marginX='2' max={duration} min={0} value={[progress]} w='100%' onChange={handleOnChangeSeekBar}>
           <RangeSliderTrack>
             <RangeSliderFilledTrack bg='green.400' />
           </RangeSliderTrack>
@@ -202,12 +202,12 @@ export const VideoPlayer: React.FC = () => {
           )}
           <Box className='absolute right-[26%] top-[-280%] hidden min-h-[110px] min-w-5 items-end justify-center group-hover:flex'>
             <Slider
-              value={volume}
-              min={0}
               max={1}
-              step={0.01}
-              orientation='vertical'
+              min={0}
               minH='100px'
+              orientation='vertical'
+              step={0.01}
+              value={volume}
               onChange={handleOnChangeVolume}
             >
               <SliderTrack w='2'>
@@ -217,12 +217,12 @@ export const VideoPlayer: React.FC = () => {
             </Slider>
           </Box>
         </Box>
-        <div onClick={toggleRepeat} className={clsx('cursor-pointer', isRepeat && 'text-green-400')}>
+        <div className={clsx('cursor-pointer', isRepeat && 'text-green-400')} onClick={toggleRepeat}>
           <FaRepeat size={ICON_SIZE} />
         </div>
         <div>
           <Box ref={playbackRateBoxRef} className='relative cursor-pointer'>
-            <Box onClick={togglePlaybackRateBox} className='hover:text-green-400'>
+            <Box className='hover:text-green-400' onClick={togglePlaybackRateBox}>
               <FaClock size={ICON_SIZE} />
             </Box>
             {isShowPlaybackRate && (
@@ -230,14 +230,14 @@ export const VideoPlayer: React.FC = () => {
                 {PLAYBACK_RATE_LIST.map((rate) => (
                   <Box
                     key={rate}
-                    onClick={changePlaybackRate(rate)}
-                    display='flex'
-                    alignItems='center'
-                    paddingLeft='3'
                     _hover={{ bg: 'rgba(17, 24, 39, 0.6)' }}
+                    alignItems='center'
+                    display='flex'
+                    paddingLeft='3'
+                    onClick={changePlaybackRate(rate)}
                   >
                     <Box className='min-w-4'>{playbackRate === rate && <FaCheck />}</Box>
-                    <Button bg='none' _hover='none' _active='none' color='white'>
+                    <Button _active='none' _hover='none' bg='none' color='white'>
                       {rate}
                     </Button>
                   </Box>
@@ -249,7 +249,7 @@ export const VideoPlayer: React.FC = () => {
         <Box onClick={onOpen}>
           <FaScissors size={ICON_SIZE} />
         </Box>
-        <Box onClick={openFullScreen} cursor='pointer'>
+        <Box cursor='pointer' onClick={openFullScreen}>
           <FaExpand size={ICON_SIZE} />
         </Box>
         <Box className='flex min-w-[138px] justify-end p-2 text-xl'>

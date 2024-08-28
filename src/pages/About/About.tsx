@@ -47,7 +47,7 @@ export const About: React.FC = () => {
     <div>
       <HeaderText>Form</HeaderText>
       <FormProvider {...methods}>
-        <form onSubmit={methods.handleSubmit(submit)} defaultValue={''} id='about-form-id'>
+        <form defaultValue={''} id='about-form-id' onSubmit={methods.handleSubmit(submit)}>
           {isPreview ? <Preview onClickBack={handleOnClickBack} /> : <AboutForm onClick={handleOnClickPreview} />}
         </form>
       </FormProvider>

@@ -46,32 +46,32 @@ export const AboutForm: React.FC<Props> = ({ onClick }: Props) => {
     <>
       <div className='grid grid-cols-2 gap-x-8'>
         <div className='w-full'>
-          <Input name='text' label='テキスト' isRequired />
+          <Input isRequired label='テキスト' name='text' />
         </div>
         <div className='w-full'>
-          <Input type='number' name='num' label='数値' isRequired />
+          <Input isRequired label='数値' name='num' type='number' />
         </div>
         <div className='flex w-full flex-col gap-x-5'>
           <div className='py-2 text-xl'>
             通知<span className='text-2xl text-red-500'>*</span>
           </div>
           <div className='flex gap-x-5'>
-            <Radio name='notification' value='on' label='通知オン' />
-            <Radio name='notification' value='off' label='通知オフ' />
+            <Radio label='通知オン' name='notification' value='on' />
+            <Radio label='通知オフ' name='notification' value='off' />
           </div>
         </div>
         <div className='flex w-full gap-x-5'>
-          <Select label='セレクトボックス' name='selectBox' options={countryOptions} isRequired />
+          <Select isRequired label='セレクトボックス' name='selectBox' options={countryOptions} />
         </div>
       </div>
       <div className='my-5'>
-        <ReactSelect label='タグ選択' name='multi' options={programmingLanguages} isRequired />
+        <ReactSelect isRequired label='タグ選択' name='multi' options={programmingLanguages} />
       </div>
       <div>
         <Textarea label='テキストエリア' name='note' />
       </div>
       <div className='mt-3 flex justify-end'>
-        <Button label='Preview' isDisabled={!isValid} onClick={onClick} />
+        <Button isDisabled={!isValid} label='Preview' onClick={onClick} />
       </div>
     </>
   )

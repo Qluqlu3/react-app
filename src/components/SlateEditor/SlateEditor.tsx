@@ -33,7 +33,7 @@ export const SlateEditor: React.FC = () => {
   return (
     <Slate editor={editor} initialValue={value} onChange={handleOnChange}>
       <Toolbar editor={editor} />
-      <Editable renderElement={renderElement} renderLeaf={renderLeaf} className='h-[500px] bg-slate-300 text-black' />
+      <Editable className='h-[500px] bg-slate-300 text-black' renderElement={renderElement} renderLeaf={renderLeaf} />
     </Slate>
   )
 }

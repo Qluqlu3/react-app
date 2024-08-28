@@ -84,12 +84,12 @@ export const Chakra: React.FC = () => {
 
   return (
     <Box>
-      <Heading size='3xl' paddingY='3'>
+      <Heading paddingY='3' size='3xl'>
         Chakra UI
       </Heading>
-      <Grid templateColumns='repeat(2, 1fr)' gap='5' marginBottom='5'>
+      <Grid gap='5' marginBottom='5' templateColumns='repeat(2, 1fr)'>
         <GridItem>
-          <Button size='lg' colorScheme='green'>
+          <Button colorScheme='green' size='lg'>
             Button
           </Button>
         </GridItem>
@@ -99,7 +99,7 @@ export const Chakra: React.FC = () => {
           </Checkbox>
         </GridItem>
         <GridItem>
-          <Badge colorScheme='green' variant='solid' fontSize='20px' borderRadius='md'>
+          <Badge borderRadius='md' colorScheme='green' fontSize='20px' variant='solid'>
             Badge
           </Badge>
         </GridItem>
@@ -108,7 +108,7 @@ export const Chakra: React.FC = () => {
         {steps.map((step, index) => (
           <Step key={index}>
             <StepIndicator>
-              <StepStatus complete={<StepIcon />} incomplete={<StepNumber />} active={<StepNumber />} />
+              <StepStatus active={<StepNumber />} complete={<StepIcon />} incomplete={<StepNumber />} />
             </StepIndicator>
             <Box flexShrink='0'>
               <StepTitle>{step.title}</StepTitle>
@@ -130,26 +130,26 @@ export const Chakra: React.FC = () => {
             <FormHelperText>入力間違いに注意</FormHelperText>
           </FormControl>
           <FormControl>
-            <FormLabel htmlFor='notification' mb='0' fontSize='lg'>
+            <FormLabel fontSize='lg' htmlFor='notification' mb='0'>
               メール通知
             </FormLabel>
-            <Switch size='lg' id='notification' colorScheme='green' {...register('notification')} />
+            <Switch colorScheme='green' id='notification' size='lg' {...register('notification')} />
           </FormControl>
           <FormControl isRequired>
             <Textarea placeholder='ここに入力…' {...register('content', { required: true })} />
           </FormControl>
           <Button
-            type='submit'
-            size='lg'
             colorScheme='green'
-            marginTop='5'
             isDisabled={!isValid || isSubmitting}
+            marginTop='5'
+            size='lg'
+            type='submit'
             onClick={() =>
               toast({
                 position: 'top-right',
                 isClosable: true,
                 render: () => (
-                  <Box color='white' p='3' bg='green.700' rounded='lg'>
+                  <Box bg='green.700' color='white' p='3' rounded='lg'>
                     作成完了
                   </Box>
                 ),
@@ -160,7 +160,7 @@ export const Chakra: React.FC = () => {
           </Button>
         </Stack>
       </form>
-      <Grid templateColumns='repeat(2, 1fr)' gap='3' marginTop='5'>
+      <Grid gap='3' marginTop='5' templateColumns='repeat(2, 1fr)'>
         {cardList.map((card) => (
           <ChakraCard key={card.id} {...card} onDelete={deleteCard} />
         ))}

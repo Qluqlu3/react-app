@@ -26,7 +26,7 @@ export const Navigation: React.FC = () => {
     <div className='flex w-[80px] flex-col items-center gap-y-3 bg-gray-700 p-2 [&>div]:px-3 [&>div]:py-2 hover:[&>div]:text-green-200'>
       {sidebarLinks.map(({ path, Icon, exact = false }) => (
         <div key={path}>
-          <Link to={path} activeOptions={{ exact }} activeProps={activeProps}>
+          <Link activeOptions={{ exact }} activeProps={activeProps} to={path}>
             <Icon size={ICON_SIZE} />
           </Link>
         </div>
