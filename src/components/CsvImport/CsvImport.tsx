@@ -40,7 +40,7 @@ export const CsvImport: React.FC<Props> = ({ onCsvParsed }: Props) => {
   return (
     <div>
       <h2 className='my-5 text-2xl'>CSVアップロード</h2>
-      <input type='file' accept='.csv' onChange={handleFileUpload} />
+      <input accept='.csv' type='file' onChange={handleFileUpload} />
     </div>
   )
 }

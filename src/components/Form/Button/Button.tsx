@@ -16,9 +16,9 @@ export const Button: React.FC<Props> = ({ label, type, variant = 'primary', isDi
     <>
       {variant === 'primary' && (
         <button
-          type={type}
-          disabled={isDisabled}
           className={clsx(commonStyle, isDisabled ? 'bg-gray-400' : 'bg-green-600 hover:bg-green-500')}
+          disabled={isDisabled}
+          type={type}
           onClick={!isDisabled ? onClick : undefined}
         >
           {label}
@@ -26,9 +26,9 @@ export const Button: React.FC<Props> = ({ label, type, variant = 'primary', isDi
       )}
       {variant === 'secondary' && (
         <button
-          type={type}
-          disabled={isDisabled}
           className={clsx(`${commonStyle} bg-gray-500`, 'hover:bg-gray-400')}
+          disabled={isDisabled}
+          type={type}
           onClick={!isDisabled ? onClick : undefined}
         >
           {label}

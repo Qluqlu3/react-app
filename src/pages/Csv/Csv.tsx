@@ -26,7 +26,7 @@ export const Csv: React.FC = () => {
     <div>
       <HeaderText>CSV</HeaderText>
       <CsvImport onCsvParsed={handleOnCsvParsed} />
-      <CsvTable rows={rows} columns={columns} />
+      <CsvTable columns={columns} rows={rows} />
     </div>
   )
 }

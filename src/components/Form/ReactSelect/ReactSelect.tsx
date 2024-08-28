@@ -46,23 +46,23 @@ export const ReactSelect: React.FC<Props> = ({ label, name, options, placeholder
         {isRequired && <span className='text-2xl text-red-500'>*</span>}
       </div>
       <Controller
-        name={name}
         control={control}
-        rules={{ required: true }}
+        name={name}
         render={({ field }) => (
           <Select
             {...field}
             isMulti
+            className='text-2xl text-black'
+            closeMenuOnSelect={false}
             id={name}
             options={options}
+            placeholder={placeholder}
+            styles={customStyles}
             value={options.filter((x) => field.value?.includes(x.value))}
             onChange={(newValue) => handleOnChange(newValue, field)}
-            closeMenuOnSelect={false}
-            placeholder={placeholder}
-            className='text-2xl text-black'
-            styles={customStyles}
           />
         )}
+        rules={{ required: true }}
       />
     </div>
   )
