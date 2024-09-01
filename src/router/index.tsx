@@ -1,10 +1,11 @@
 import React from 'react'
 
-import { Outlet, createRoute, createRootRoute, createRouter } from '@tanstack/react-router'
+import { Outlet, createRootRoute, createRoute, createRouter } from '@tanstack/react-router'
 
 import { App } from '../App'
+import { List } from '../components'
 import { Navigation } from '../layout'
-import { About, NotFound, Home, Slate, Chakra, Csv, Video } from '../pages'
+import { About, Chakra, Csv, Home, NotFound, Slate, Video } from '../pages'
 
 const rootRoute = createRootRoute({
   component: () => (
@@ -57,6 +58,20 @@ const videoRoute = createRoute({
   component: () => <Video />,
 })
 
-const routeTree = rootRoute.addChildren([indexRoute, aboutRoute, slateRoute, chakraRoute, csvRoute, videoRoute])
+const listRoute = createRoute({
+  getParentRoute: () => rootRoute,
+  path: '/list',
+  component: () => <List />,
+})
+
+const routeTree = rootRoute.addChildren([
+  indexRoute,
+  aboutRoute,
+  slateRoute,
+  chakraRoute,
+  csvRoute,
+  videoRoute,
+  listRoute,
+])
 
 export const router = createRouter({ routeTree })
