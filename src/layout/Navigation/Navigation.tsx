@@ -1,18 +1,19 @@
 import React from 'react'
 
 import { Link } from '@tanstack/react-router'
-import { FaCommentDots, FaFileCsv, FaHome, FaPaintBrush, FaRegEdit, FaVideo } from 'react-icons/fa'
+import { FaCommentDots, FaFileCsv, FaFilePen, FaHouse, FaList, FaPaintbrush, FaVideo } from 'react-icons/fa6'
 
 const ICON_SIZE = '38'
 
 export const Navigation: React.FC = () => {
   const sidebarLinks = [
-    { path: '/', Icon: FaHome, exact: true },
-    { path: '/about', Icon: FaRegEdit },
+    { path: '/', Icon: FaHouse, exact: true },
+    { path: '/about', Icon: FaFilePen },
     { path: '/slate', Icon: FaCommentDots },
-    { path: '/chakra', Icon: FaPaintBrush },
+    { path: '/chakra', Icon: FaPaintbrush },
     { path: '/csv', Icon: FaFileCsv },
     { path: '/video', Icon: FaVideo },
+    { path: '/list', Icon: FaList },
     // <FaRegNewspaper />,
   ]
 
